@@ -1,0 +1,54 @@
+.signup-form-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.signup-content {
+    border: 3px solid black;
+    border-radius: 100px;
+    padding: 80px;
+}
+
+.signup-h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.signup-label {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.signup-username-input, .signup-email-input, .signup-password-input, .signup-confirm-password-input {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.signup-input {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.signup-btn-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.signup-btn {
+    border-radius: 25px;
+    padding: 11px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+}

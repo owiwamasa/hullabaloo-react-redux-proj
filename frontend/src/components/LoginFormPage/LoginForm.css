@@ -1,0 +1,54 @@
+.login-form-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.login-content {
+    border: 3px solid black;
+    border-radius: 100px;
+    padding: 80px;
+}
+
+.login-h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.login-label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.login-credentials-input, .login-password-input {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.login-input {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.login-submit-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.login-btn {
+    border-radius: 25px;
+    padding: 11px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+}
