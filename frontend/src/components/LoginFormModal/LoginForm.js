@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import './LoginForm.css'
 
 
-const LoginFormPage = () => {
+const LoginForm = () => {
     const sessionUser = useSelector(state => state.session.user)
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
@@ -78,4 +78,4 @@ const LoginFormPage = () => {
     )
 }
 
-export default LoginFormPage
+export default LoginForm
