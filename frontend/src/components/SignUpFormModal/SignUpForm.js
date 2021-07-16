@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import * as sessionActions from '../../store/session'
-import './SignupForm.css'
+import './SignUpForm.css'
 
-function SignupFormPage() {
+function SignUpFormModal() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -119,4 +119,4 @@ function SignupFormPage() {
     )
 }
 
-export default SignupFormPage
+export default SignUpFormModal
