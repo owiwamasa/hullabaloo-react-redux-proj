@@ -11,9 +11,6 @@ function SignUpFormModal() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
-    const sessionUser = useSelector((state => state.session.user))
-
-    if (sessionUser) return <Redirect to='/' />
 
     const onSubmit = (e) => {
         e.preventDefault()

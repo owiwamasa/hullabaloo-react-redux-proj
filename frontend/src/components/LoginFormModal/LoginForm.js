@@ -6,13 +6,10 @@ import './LoginForm.css'
 
 
 const LoginForm = () => {
-    const sessionUser = useSelector(state => state.session.user)
     const [credential, setCredential] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
-
-    if (sessionUser) return <Redirect to='/' />
 
     const onSubmit = (e) => {
         e.preventDefault()
