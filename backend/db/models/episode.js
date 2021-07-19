@@ -2,9 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Episode = sequelize.define('Episode', {
     title: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
     imageUrl: DataTypes.TEXT,
-    mp3: DataTypes.STRING,
+    mp3: DataTypes.TEXT,
     totalPlays: {
       type: DataTypes.INTEGER,
       defaultValue: 0

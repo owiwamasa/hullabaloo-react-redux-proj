@@ -1,9 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux'
+
+import { allPods } from '../../store/podcast'
 import './ProfilePage.css'
 
 function ProfilePage() {
+
     return (
         <div>
-            <div className='profile-page-create-btn-container'>
+            {/* <div className='profile-page-create-btn-container'>
                 <button className='profile-page-create-btn'>Create New Podcast</button>
             </div>
             <div className='profile-page-container'>
@@ -34,7 +38,7 @@ function ProfilePage() {
                         <button className='profile-page-btn'>Delete Episode</button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

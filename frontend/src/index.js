@@ -8,6 +8,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session'
 import { ModalProvider } from './context/Modal';
+import { getAllPodcasts } from './store/podcast'
 
 const store = configureStore();
 
@@ -30,6 +31,7 @@ function Root() {
     </ModalProvider>
   );
 }
+store.dispatch(getAllPodcasts())
 
 ReactDOM.render(
   <React.StrictMode>

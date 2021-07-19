@@ -14,14 +14,14 @@ module.exports = {
       },
       description: {
         allowNull: false,
-        type: Sequelize.STRING(255)
+        type: Sequelize.TEXT
       },
       imageUrl: {
         type: Sequelize.TEXT
       },
       mp3: {
         allowNull: false,
-        type: Sequelize.STRING(255)
+        type: Sequelize.TEXT
       },
       totalPlays: {
         allowNull: false,

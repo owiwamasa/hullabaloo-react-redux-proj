@@ -1,29 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import { getOnePodcast } from '../../store/podcast'
 import './PodcastPage.css'
 
 function PodcastPage() {
     const { id } = useParams()
-    const dispatch = useDispatch()
-    // const podcast = useSelector(state => console.log(state.podcast[id].podcast))
-
-    useEffect(() => {
-        dispatch(getOnePodcast(id))
-    }, [dispatch, id])
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const podcast = podcasts.find(pod => pod.id === +id)
+    // const sessionUser = useSelector(state => state.session.user)
+    const podcastUserId = podcast.userId
+    console.log(podcast)
 
     return (
         <div className='podcast-page-container'>
-            <div className='podcast-page-title'>The Midnight Miracle</div>
+            <div className='podcast-page-title'>{podcast.name}</div>
             <div className='podcast-page-info'>
                 <div className='podcast-page-image'>
-                    <img src='https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_90,w_1400/fl_lossy,pg_1/bklykxhl9dqgymq0daa9/midnight-miracle' />
+                    <img src={podcast.imageUrl} />
                 </div>
                 <div className='podcast-page-user-info'>
-                    <div className='podcast-page-username'>Created by daveChappelle</div>
-                    <div className='podcast-page-description'>The Midnight Miracle is a podcast like you've never heard before. The show invites you into the minds of cultural icons Talib Kweli, yasiin bey, and Dave Chappelle. Listen in as notable friends stop by, share old stories, and make new memories.</div>
-                    <div className='podcast-page-plays'>Total Plays: 752</div>
+                    <div className='podcast-page-username'>Created by {podcast.userId}</div>
+                    <div className='podcast-page-description'>{podcast.description}</div>
+                    <div className='podcast-page-plays'>Total Plays: {podcast.totalPlays}</div>
                 </div>
             </div>
             <div className='podcast-page-episodes-title'>Episodes</div>

@@ -1,11 +1,11 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
-const { Podcast, Episode } = require('../../db/models')
+const { Podcast, Episode, User } = require('../../db/models')
 
 const router = express.Router()
 
 router.get('/', asyncHandler(async (req, res) => {
-    const allPodcasts = await Podcast.findAll()
+    const allPodcasts = await Podcast.findAll({ include: User })
 
     res.json({ allPodcasts })
 }))

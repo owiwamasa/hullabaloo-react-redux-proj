@@ -1,48 +1,44 @@
 import { csrfFetch } from './csrf'
 
-const GET_POD = 'podcast/GET_POD'
-
-const LOAD = 'podcast/LOAD'
+const ALL_PODS = 'podcast/ALL_PODS'
 
 
-const load = list => ({
-    type: LOAD,
+const allPods = list => ({
+    type: ALL_PODS,
     list
 })
-
-const getPod = (podcast) => {
-    return {
-        type: GET_POD,
-        podcast
-    }
-}
 
 
 export const getAllPodcasts = () => async dispatch => {
     const res = await fetch('/api/podcasts')
     const list = await res.json()
-    dispatch(load(list))
+    dispatch(allPods(list))
     return res
 }
 
-export const getOnePodcast = (podcastId) => async dispatch => {
-    const res = await fetch(`/api/podcasts/${podcastId}`)
-    const podcast = await res.json()
-    dispatch(getPod(podcast))
-    return res
-}
-
+// export const getOnePodcast = (podcastId) => async dispatch => {
+//     const res = await fetch(`/api/podcasts/${podcastId}`)
+//     const podcast = await res.json()
+//     dispatch(getPod(podcast))
+//     return res
+// }
 
 const podcastReducer = (state = {}, action) => {
     let newState
     switch (action.type) {
-        case GET_POD:
-            newState = { ...state }
-            newState[action.podcast.podcast.id] = action.podcast
+        case ALL_PODS:
+            console.log(action.list)
+            newState = {
+                ...state,
+                ...action.list
+            }
             return newState
         default:
             return state
     }
 }
+
+
+
 
 export default podcastReducer
