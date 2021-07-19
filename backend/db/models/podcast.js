@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Podcast.associate = function (models) {
     // associations can be defined here
-    Podcast.hasMany(models.Episode, { foreignKey: 'episodeId' })
+    Podcast.hasMany(models.Episode, { foreignKey: 'podcastId' })
     Podcast.belongsTo(models.User, { foreignKey: 'userId' })
     Podcast.hasMany(models.Tag, { foreignKey: 'tagId' })
     Podcast.hasMany(models.Follower, { foreignKey: 'podcastId' })

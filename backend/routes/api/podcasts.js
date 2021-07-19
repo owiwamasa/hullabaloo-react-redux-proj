@@ -17,16 +17,4 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.json({ podcast })
 }))
 
-router.get('/episodes/:id', asyncHandler(async (req, res) => {
-    const { id } = req.params
-
-    const episode = await Episode.findOne({
-        where: {
-            id
-        },
-        include: Podcast
-    })
-    res.json({ episode })
-}))
-
 module.exports = router

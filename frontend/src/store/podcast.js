@@ -6,6 +6,12 @@ const allPods = list => ({
     list
 })
 
+// export const getOnePodcast = (podcastId) => async dispatch => {
+//     const res = await fetch(`/api/podcasts/${podcastId}`)
+//     const podcast = await res.json()
+//     dispatch(getPod(podcast))
+//     return res
+// }
 
 export const getAllPodcasts = () => async dispatch => {
     const res = await fetch('/api/podcasts')
@@ -14,12 +20,6 @@ export const getAllPodcasts = () => async dispatch => {
     return res
 }
 
-// export const getOnePodcast = (podcastId) => async dispatch => {
-//     const res = await fetch(`/api/podcasts/${podcastId}`)
-//     const podcast = await res.json()
-//     dispatch(getPod(podcast))
-//     return res
-// }
 
 const podcastReducer = (state = {}, action) => {
     let newState
