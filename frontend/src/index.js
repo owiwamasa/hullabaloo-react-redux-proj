@@ -8,7 +8,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session'
 import { ModalProvider } from './context/Modal';
-import { getAllPodcasts } from './store/podcast'
+import { getAllPodcasts } from './store/podcast';
 import { getAllEpisodes } from './store/episode';
 
 const store = configureStore();

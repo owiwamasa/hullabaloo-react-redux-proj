@@ -1,16 +1,19 @@
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import './PodcastPage.css'
 
-function PodcastPage() {
+function PodcastPage({ podcasts, episodes }) {
     const { id } = useParams()
-    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    // const podcasts = props.podcasts
+    // const episodes = props.episodes
+    console.log(podcasts)
+    console.log(episodes)
+    // const podcasts = useSelector(state => state.podcast.allPodcasts)
     const podcast = podcasts.find(pod => pod.id === +id)
-    // const sessionUser = useSelector(state => state.session.user)
-    // const podcastUserId = podcast.userId
-    const episodes = useSelector(state => state.episode.allEpisodes)
+    // const episodes = useSelector(state => state.episode.allEpisodes)
     const podcastEpisodes = episodes.filter(episode => episode.podcastId === +id)
-    console.log(podcastEpisodes)
+
+    // const podcastUser = podcast.User.username
 
     return (
         <div className='podcast-page-container'>
@@ -28,9 +31,11 @@ function PodcastPage() {
             <div className='podcast-page-episodes-title'>Episodes</div>
             <div className='podcast-page-episodes-scroll'>
                 {podcastEpisodes.map(episode => (
-                    <div className='podcast-page-episodes-list'>
+                    <div className='podcast-page-episodes-list' key={episode.id}>
                         <div className='podcast-page-episode'>{episode.title}</div>
-                        <img src={episode.imageUrl} />
+                        <Link to={`/episodes/${episode.id}`}>
+                            <img src={episode.imageUrl} />
+                        </Link>
                     </div>
                 ))}
             </div>
