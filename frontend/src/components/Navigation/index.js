@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
     }
 
     const demoLogin = () => {
-        return dispatch(sessionActions.login({ credential: 'demo', password: 'password' }))
+        return dispatch(sessionActions.login({ credential: 'Demo', password: 'password' }))
     }
 
     let sessionLinks;

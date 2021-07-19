@@ -20,13 +20,13 @@
     margin: 0;
 }
 
-.profile-dropdown li {
+.profile-dropdown{
     display: flex;
     justify-content: center;
-    position: absolute;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
-
+    position: absolute;
+    top: 70px;
 }
 
 .dropdown-user {
@@ -40,7 +40,6 @@
 .logout-btn {
     display: flex;
     justify-content: center;
-    margin-top: 45px;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     border-radius: 20px;
@@ -60,7 +59,9 @@
 .profile-menu {
     display: flex;
     flex-direction: column;
-    margin: 10px 25px 10px 182px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 60px 10px 182px;
     /* width: 175px; */
 }
 
@@ -83,7 +84,7 @@ background-color: rgb(244, 255, 44);
 .navbar-logo {
     width: 150px;
     height: auto;
-    margin: 10px 123px 10px 25px;
+    margin: 10px 123px 10px 60px;
 }
 
 .logo-btn {
@@ -102,5 +103,5 @@ background-color: rgb(244, 255, 44);
 }
 
 #signup-btn {
-    margin-right: 25px
+    margin-right: 60px
 }

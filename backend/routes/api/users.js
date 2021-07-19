@@ -4,7 +4,7 @@ const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation')
 
 const { setCookie, requireAuth, setTokenCookie } = require('../../utils/auth')
-const { User } = require('../../db/models')
+const { User, Podcast, Episode } = require('../../db/models')
 
 const router = express.Router();
 
@@ -35,10 +35,23 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 
     await setTokenCookie(res, user)
 
-    return res.json({
-        user,
-    })
+    return res.json({ user })
 }))
 
+router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const { id } = req.params.id
+    const user = await User.findByPk(id)
+    const podcasts = await Podcast.findAll({
+        where: {
+            userId: user.id
+        }
+    })
+    const episodes = await Episode.findAll({
+        where: {
+            userId: user.id
+        }
+    })
+    return res.json({ user, podcasts, episodes })
+}))
 
 module.exports = router;

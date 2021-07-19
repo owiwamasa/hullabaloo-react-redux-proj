@@ -14,7 +14,7 @@ function LandingPage() {
         <button className='landing-container' onClick={() => goToHome()}>
             <div className='landing-welcome'>Hullabaloo</div>
             <img className='landing-logo' src={logo} alt='logo' />
-            <div className='landing-subtitle'>Discover comedy podcasts <br></br> and your favorite comedians</div>
+            <div className='landing-subtitle'>Discover comedy podcasts <br></br> and create your own!!</div>
         </button>
     )
 }

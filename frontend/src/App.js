@@ -6,6 +6,9 @@ import Navigation from "./components/Navigation";
 import './index.css'
 import LandingPage from "./components/LandingPage/LandingPage";
 import HomePage from "./components/HomePage";
+import PodcastPage from "./components/PodcastPage";
+import ProfilePage from "./components/ProfilePage";
+import EpisodePage from './components/EpisodePage'
 
 
 function App() {
@@ -25,6 +28,15 @@ function App() {
           </Route>
           <Route path='/home'>
             <HomePage />
+          </Route>
+          <Route path='/podcasts/:id'>
+            <PodcastPage />
+          </Route>
+          <Route path='/users/:id'>
+            <ProfilePage />
+          </Route>
+          <Route path='/episodes/:id'>
+            <EpisodePage />
           </Route>
         </Switch>
       )}

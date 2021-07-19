@@ -1,0 +1,116 @@
+.profile-page-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-page-podcasts-container {
+    margin-left: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-page-episodes-container {
+    margin-right: 150px;
+    margin-bottom: 40px;
+}
+
+.profile-page-btn {
+    background-color: rgb(233, 233, 233);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 15px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.profile-page-edit-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-page-podcast-title {
+    font-size: 35px;
+    font-family: 'Righteous', cursive;
+}
+
+.profile-page-podcasts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-page-podcast-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.profile-page-podcast-user {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+
+.profile-page-podcast-image{
+    width: 400px;
+    height: auto;
+    margin: 20px 0px;
+}
+
+.profile-page-episode-title {
+    font-size: 35px;
+    font-family: 'Righteous', cursive;
+}
+
+.profile-page-episodes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-page-episode-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.profile-page-episode-user {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+
+.profile-page-episode-image{
+    width: 400px;
+    height: auto;
+    margin: 20px 0px;
+}
+
+.profile-page-episode-edit-btns {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-page-create-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.profile-page-create-btn {
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    background-color: rgb(233, 233, 233);
+    font-weight: 500;
+    padding: 5px 15px;
+    margin: 20px 10px;
+}

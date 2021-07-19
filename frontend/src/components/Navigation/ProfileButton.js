@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
+    const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const history = useHistory()
@@ -31,6 +32,11 @@ function ProfileButton({ user }) {
         history.push('/home')
     };
 
+    const goToProfile = (e) => {
+        e.preventDefault()
+        history.push(`/users/${sessionUser.id}`)
+    }
+
     return (
         <div className='profile-menu'>
             <button className='profile-btn' onClick={openMenu}>
@@ -38,14 +44,14 @@ function ProfileButton({ user }) {
                 <i className="fas fa-caret-down" />
             </button>
             {showMenu && (
-                <ul className="profile-dropdown">
-                    <li className='dropdown-my-page'>
-                        <button className='my-page-btn' onClick={logout}>{`${user.username}'s Page`}</button>
-                    </li>
-                    <li className='dropdown-logout'>
+                <div className="profile-dropdown">
+                    <div className='dropdown-my-page'>
+                        <button className='my-page-btn' onClick={goToProfile} >{`${user.username}'s Page`}</button>
+                    </div>
+                    <div className='dropdown-logout'>
                         <button className='logout-btn' onClick={logout}>Log Out</button>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             )}
         </div>
     );
