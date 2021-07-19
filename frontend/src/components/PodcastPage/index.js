@@ -7,7 +7,7 @@ function PodcastPage() {
     const podcasts = useSelector(state => state.podcast.allPodcasts)
     const podcast = podcasts.find(pod => pod.id === +id)
     // const sessionUser = useSelector(state => state.session.user)
-    const podcastUserId = podcast.userId
+    // const podcastUserId = podcast.userId
     console.log(podcast)
 
     return (

@@ -1,5 +1,3 @@
-import { csrfFetch } from './csrf'
-
 const ALL_PODS = 'podcast/ALL_PODS'
 
 
@@ -27,7 +25,6 @@ const podcastReducer = (state = {}, action) => {
     let newState
     switch (action.type) {
         case ALL_PODS:
-            console.log(action.list)
             newState = {
                 ...state,
                 ...action.list

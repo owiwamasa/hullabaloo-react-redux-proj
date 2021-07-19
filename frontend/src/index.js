@@ -11,6 +11,7 @@ import { ModalProvider } from './context/Modal';
 import { getAllPodcasts } from './store/podcast'
 
 const store = configureStore();
+store.dispatch(getAllPodcasts())
 
 if (process.env.NODE_ENV !== 'production') {
   restoreCSRF()
@@ -31,7 +32,6 @@ function Root() {
     </ModalProvider>
   );
 }
-store.dispatch(getAllPodcasts())
 
 ReactDOM.render(
   <React.StrictMode>
