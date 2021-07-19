@@ -1,4 +1,4 @@
-import { Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './LandingPage.css'
 import logo from '../../images/comedy-heads.png'
 

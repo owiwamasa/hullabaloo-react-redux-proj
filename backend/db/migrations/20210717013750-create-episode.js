@@ -19,7 +19,7 @@ module.exports = {
       imageUrl: {
         type: Sequelize.TEXT
       },
-      mp3: {
+      mp3file: {
         allowNull: false,
         type: Sequelize.TEXT
       },

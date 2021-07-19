@@ -6,7 +6,6 @@ const router = express.Router()
 
 router.get('/', asyncHandler(async (req, res) => {
     const allPodcasts = await Podcast.findAll({ include: User })
-
     res.json({ allPodcasts })
 }))
 

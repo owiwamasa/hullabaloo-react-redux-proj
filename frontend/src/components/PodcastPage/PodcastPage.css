@@ -36,9 +36,9 @@
 }
 
 .podcast-page-episodes-title {
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Righteous', cursive;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -46,7 +46,7 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    width: 900px;
+    width: 1200px;
 }
 
 .podcast-page-episodes-list {
@@ -88,4 +88,16 @@
 .profile-page-episode-podcast-title {
     font-size: 20px;
     font-family: 'Righteous', cursive;
+}
+
+.podcast-page-profile-pic {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 700px;
+    margin-top: 15px;
+}
+
+.podcast-page-profile-pic img{
+    width: auto;
+    height: 100px;
 }

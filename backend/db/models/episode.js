@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     imageUrl: DataTypes.TEXT,
-    mp3: DataTypes.TEXT,
+    mp3file: DataTypes.TEXT,
     totalPlays: {
       type: DataTypes.INTEGER,
       defaultValue: 0

@@ -11,7 +11,7 @@ import ProfilePage from "./components/ProfilePage";
 import EpisodePage from './components/EpisodePage'
 
 
-function App({ store }) {
+function App() {
   const dispatch = useDispatch()
   const [isLoaded, setIsLoaded] = useState(false)
   useEffect(() => {
@@ -20,6 +20,7 @@ function App({ store }) {
 
   const podcasts = useSelector(state => state.podcast.allPodcasts)
   const episodes = useSelector(state => state.episode.allEpisodes)
+  const users = useSelector(state => state.user.allUsers)
 
   return (
     <>
@@ -30,16 +31,16 @@ function App({ store }) {
             <LandingPage />
           </Route>
           <Route path='/home'>
-            <HomePage />
+            <HomePage users={users} podcasts={podcasts} episodes={episodes} />
           </Route>
           <Route path='/podcasts/:id'  >
-            <PodcastPage podcasts={podcasts} episodes={episodes} />
+            <PodcastPage users={users} podcasts={podcasts} episodes={episodes} />
           </Route>
           <Route path='/users/:id'>
-            <ProfilePage />
+            <ProfilePage podcasts={podcasts} episodes={episodes} />
           </Route>
           <Route path='/episodes/:id'>
-            <EpisodePage />
+            <EpisodePage users={users} podcasts={podcasts} episodes={episodes} />
           </Route>
         </Switch>
       )

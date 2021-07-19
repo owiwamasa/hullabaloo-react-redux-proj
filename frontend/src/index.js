@@ -10,10 +10,12 @@ import * as sessionActions from './store/session'
 import { ModalProvider } from './context/Modal';
 import { getAllPodcasts } from './store/podcast';
 import { getAllEpisodes } from './store/episode';
+import { getAllUsers } from './store/user';
 
 const store = configureStore();
 store.dispatch(getAllPodcasts())
 store.dispatch(getAllEpisodes())
+store.dispatch(getAllUsers())
 
 if (process.env.NODE_ENV !== 'production') {
   restoreCSRF()

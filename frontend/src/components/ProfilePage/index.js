@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
 
-import { allPods } from '../../store/podcast'
 import './ProfilePage.css'
 
 function ProfilePage() {

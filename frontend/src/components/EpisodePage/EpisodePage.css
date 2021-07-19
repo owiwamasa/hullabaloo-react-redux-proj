@@ -1,0 +1,98 @@
+.episode-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.episode-page-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 400px;
+}
+
+.episode-page-user-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.episode-page-image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 80px;
+    margin-top: 140px;
+}
+
+.episode-page-image {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.episode-page-title {
+    font-size: 35px;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 20px;
+}
+
+.episode-page-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    width: 450px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.episode-page-audio {
+    margin-top: 30px;
+}
+
+.episode-page-podcast-name{
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 55px;
+}
+
+.episode-page-user {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.episode-page-total-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.episode-page-podcast-btn {
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    background-color: rgb(233,233,233);
+    font-weight: 500;
+    padding: 5px 15px;
+}
+
+.episode-page-podcast-link {
+    margin-top: 40px;
+}
+
+.episode-page-profile-pic {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 700px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.episode-page-profile-pic img{
+    width: auto;
+    height: 100px;
+}

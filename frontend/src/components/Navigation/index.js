@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
     return (
         <div className='navbar'>
             <button className='logo-btn' onClick={() => goToLanding()} >
-                <img className='navbar-logo' src={logo} />
+                <img className='navbar-logo' src={logo} alt='logo' />
             </button>
             <NavLink to="/home" className='nav-home'>Hullabaloo</NavLink>
             {isLoaded && sessionLinks}
