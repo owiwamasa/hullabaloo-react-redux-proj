@@ -1,0 +1,75 @@
+#create-podcast-btn {
+    background-color: rgb(233, 233, 233);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 15px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.create-podcast-form-div {
+    display: flex;
+    justify-content: center;
+}
+
+.create-podcast-content {
+    border: 3px solid black;
+    border-radius: 100px;
+    padding: 80px;
+}
+
+.create-podcast-h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.create-podcast-label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.create-podcast-name-input, .create-podcast-description-input, .create-podcast-image-input {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.create-podcast-input-image, .create-podcast-input-name  {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    width: 200px;
+}
+
+.create-podcast-description {
+    resize: none;
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.create-podcast-submit-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.create-podcast-btn {
+    border-radius: 25px;
+    padding: 11px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+}

@@ -13,17 +13,14 @@ function SignUpFormModal() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        const errors = []
 
-        if (password === confirmPassword) {
-            setErrors([])
-            return dispatch(sessionActions.signup({ username, email, password }))
-                .catch(async (res) => {
-                    const data = await res.json()
-                    if (data && data.errors) setErrors(errors)
-                })
-        }
-        return setErrors(['Passwords must match'])
+        setErrors([])
+        return dispatch(sessionActions.signup({ username, email, password }))
+            .catch(async (res) => {
+                const data = await res.json()
+                if (password !== confirmPassword) data.errors.push('Passwords must match.')
+                if (data && data.errors) setErrors(data.errors)
+            })
     }
 
     return (
