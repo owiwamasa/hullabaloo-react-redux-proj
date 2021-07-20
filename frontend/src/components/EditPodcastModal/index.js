@@ -11,7 +11,7 @@ function EditPodcastModal({ podcastId }) {
             <button id='edit-podcast-btn' onClick={() => setShowModal(true)}>Edit Podcast</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditPodcastForm podcastId={podcastId} />
+                    <EditPodcastForm podcastId={podcastId} setShowModal={setShowModal} />
                 </Modal>
             )}
         </>
