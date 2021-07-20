@@ -28,7 +28,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.post('/', validatePodcast, asyncHandler(async (req, res) => {
     const newPodcast = await Podcast.create(req.body)
-    res.json({ newPodcast })
+    return res.json(newPodcast)
 }))
 
 router.get('/:id', asyncHandler(async (req, res) => {
@@ -53,6 +53,7 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     const podcast = await Podcast.findByPk(id)
     res.json(podcast)
     await podcast.destroy()
+    return
 }))
 
 module.exports = router

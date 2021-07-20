@@ -69,22 +69,13 @@ const podcastReducer = (state = {}, action) => {
             }
             return newState
         case CREATE_POD:
-            if (!state[action.podcast.id]) {
-                newState = {
-                    ...state,
-                    [action.podcast.id]: action.podcast
-                }
-                return newState
-            }
-            return {
-                ...state,
-                [action.podcast.id]: {
-                    ...action.podcast
-                }
-            }
+            newState = { ...state }
+            newState.allPodcasts = [...state.allPodcasts, action.podcast]
+            return newState
         case DELETE_POD:
             newState = { ...state }
-            delete newState[action.podcastId]
+            const newAllPodcasts = newState.allPodcasts.filter(podcast => podcast.id !== action.podcastId)
+            newState.allPodcasts = newAllPodcasts
             return newState
         default:
             return state

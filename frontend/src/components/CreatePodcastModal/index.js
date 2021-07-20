@@ -11,7 +11,7 @@ function CreatePodcastModal() {
             <button id='create-podcast-btn' onClick={() => setShowModal(true)}>Create New Podcast</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <CreatePodcastForm />
+                    <CreatePodcastForm setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

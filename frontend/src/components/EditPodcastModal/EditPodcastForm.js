@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './EditPodcastForm.css'
 import { editPodcast } from '../../store/podcast'
 
-function EditPodcastForm({ podcastId }) {
+function EditPodcastForm({ podcastId, setShowModal }) {
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -19,7 +19,7 @@ function EditPodcastForm({ podcastId }) {
             name, description, imageUrl, userId: sessionUser?.id
         }
 
-        return dispatch(editPodcast(payload, podcastId))
+        return dispatch(editPodcast(payload, podcastId)).then(() => setShowModal(false))
             .catch(async (res) => {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
