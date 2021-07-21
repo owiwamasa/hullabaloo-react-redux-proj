@@ -63,7 +63,7 @@ function HomePage({ podcasts, episodes, followers }) {
             </div>
             <div className='most-played-episodes'>
                 <div className='most-episode-title'>Most Popular Episodes</div>
-                <div className='home-episode-list'>?
+                <div className='home-episode-list'>
                     {topTenEpisodes && topTenEpisodes?.map(episode => (
                         <div className='home-episode-list-each' key={episode?.id}>
                             <div className='home-episode-list-link'>
