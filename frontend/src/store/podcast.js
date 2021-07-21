@@ -104,8 +104,6 @@ const podcastReducer = (state = {}, action) => {
         // newState = { ...state, ...newState.allPodcasts }
         // return newState
 
-
-
         // newState = { ...state }
         // const copyAllPodcasts = [...newState.allPodcasts]
         // const allPodcastsNew = copyAllPodcasts.filter(podcast => podcast.id !== action.podcast.id)

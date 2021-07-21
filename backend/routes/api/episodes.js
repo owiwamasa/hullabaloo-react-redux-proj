@@ -25,7 +25,10 @@ const validateEpisode = [
 ]
 
 router.get('/', asyncHandler(async (req, res) => {
-    const allEpisodes = await Episode.findAll({ include: Podcast })
+    const allEpisodes = await Episode.findAll({
+        include: Podcast,
+        order: [['totalPlays', 'DESC']]
+    })
 
     res.json({ allEpisodes })
 }))

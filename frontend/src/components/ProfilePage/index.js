@@ -38,7 +38,7 @@ function ProfilePage({ podcasts, episodes }) {
                         <div className='profile-page-podcasts' key={podcast?.id}>
                             <div className='profile-page-podcast-title'>{podcast?.name}</div>
                             <Link to={`/podcasts/${podcast?.id}`}>
-                                <img className='profile-page-podcast-image' src={podcast?.imageUrl} />
+                                <img className='profile-page-podcast-image' src={podcast?.imageUrl} alt='podcast' />
                             </Link>
                             <div className='profile-page-podcast-plays'>Total Plays: {podcast?.totalPlays}</div>
                             <div className='profile-page-edit-btns'>
@@ -56,7 +56,7 @@ function ProfilePage({ podcasts, episodes }) {
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>
-                                <img className='profile-page-episode-image' src={episode?.imageUrl} />
+                                <img className='profile-page-episode-image' src={episode?.imageUrl} alt='episode' />
                             </Link>
                             <div className='profile-page-episode-podcast-title'>{episode?.Podcast?.name}</div>
                             <div className='profile-page-episode-plays'>Total Plays: {episode?.totalPlays}</div>
