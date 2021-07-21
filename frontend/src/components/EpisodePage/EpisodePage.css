@@ -36,7 +36,7 @@
 .episode-page-title {
     font-size: 35px;
     font-family: 'Righteous', cursive;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
 }
 
 .episode-page-description {
@@ -69,6 +69,11 @@
     font-size: 20px;
     text-align: center;
     margin-top: 20px;
+}
+
+.episode-page-date {
+    font-family: 'Righteous', cursive;
+    font-size: 22px;
 }
 
 .episode-page-podcast-btn {

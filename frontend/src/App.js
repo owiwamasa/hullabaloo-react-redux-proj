@@ -21,6 +21,7 @@ function App() {
   const podcasts = useSelector(state => state.podcast.allPodcasts)
   const episodes = useSelector(state => state.episode.allEpisodes)
   const users = useSelector(state => state.user.allUsers)
+  const followers = useSelector(state => state.follower.allFollowers)
 
   return (
     <>
@@ -31,13 +32,13 @@ function App() {
             <LandingPage />
           </Route>
           <Route path='/home'>
-            <HomePage users={users} podcasts={podcasts} episodes={episodes} />
+            <HomePage users={users} podcasts={podcasts} episodes={episodes} followers={followers} />
           </Route>
           <Route path='/podcasts/:id'  >
-            <PodcastPage users={users} podcasts={podcasts} episodes={episodes} />
+            <PodcastPage podcasts={podcasts} episodes={episodes} followers={followers} />
           </Route>
           <Route path='/users/:id'>
-            <ProfilePage podcasts={podcasts} episodes={episodes} />
+            <ProfilePage podcasts={podcasts} episodes={episodes} followers={followers} />
           </Route>
           <Route path='/episodes/:id'>
             <EpisodePage users={users} podcasts={podcasts} episodes={episodes} />

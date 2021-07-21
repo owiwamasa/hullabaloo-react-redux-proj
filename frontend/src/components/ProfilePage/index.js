@@ -8,10 +8,18 @@ import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
 import { deleteEpisode } from '../../store/episode'
 
-function ProfilePage({ podcasts, episodes }) {
+function ProfilePage({ podcasts, episodes, followers }) {
     const sessionUser = useSelector(state => state.session.user);
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
+    const episodeCopy = []
+    userEpisodes?.forEach(episode => episodeCopy.push(episode))
+    const podcastCopy = []
+    userPodcasts?.forEach(podcast => podcastCopy.push(podcast))
+    const mostRecentEpisodes = episodeCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
+    const mostRecentPodcasts = podcastCopy?.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1)
+    const follows = followers?.filter(follow => follow.userId === sessionUser?.id)
+
     const dispatch = useDispatch()
 
     const deletePod = (podcastId) => {
@@ -24,6 +32,20 @@ function ProfilePage({ podcasts, episodes }) {
 
     return (
         <div>
+            <div className='profile-page-followed-podcasts'>
+                <div className='profile-page-followed-podcast-title'>Podcasts You're Following</div>
+                <div className='profile-page-followed-podcast-list'>
+                    {follows && follows?.map(follow => (
+                        <div className='profile-page-followed-podcast-list-each' key={follow?.Podcast?.id}>
+                            <Link className='profile-page-followed-podcast-list-link' to={`/podcasts/${follow?.Podcast?.id}`}>
+                                <div className='profile-page-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
+                                <img className='profile-page-followed-podcast-list-image' src={follow?.Podcast?.imageUrl} alt={follow?.Podcast?.name} />
+                            </Link>
+                            {/* <div className='home-followed-podcast-list-plays'>Total Plays: {follow.Podcast?.totalPlays}</div> */}
+                        </div>
+                    ))}
+                </div>
+            </div>
             <div className='profile-page-create-btn-container'>
                 <div className='profile-page-header'>
                     <CreatePodcastModal />
@@ -34,7 +56,7 @@ function ProfilePage({ podcasts, episodes }) {
             <div className='profile-page-container'>
                 <div className='profile-page-podcasts-container'>
                     <div className='profile-page-podcast-user'>{sessionUser?.username}'s Podcasts</div>
-                    {userPodcasts && userPodcasts?.map(podcast => (
+                    {mostRecentPodcasts && mostRecentPodcasts?.map(podcast => (
                         <div className='profile-page-podcasts' key={podcast?.id}>
                             <div className='profile-page-podcast-title'>{podcast?.name}</div>
                             <Link to={`/podcasts/${podcast?.id}`}>
@@ -52,7 +74,7 @@ function ProfilePage({ podcasts, episodes }) {
 
                 <div className='profile-page-episodes-container'>
                     <div className='profile-page-episode-user'>{sessionUser?.username}'s Episodes</div>
-                    {userEpisodes && userEpisodes?.map(episode => (
+                    {mostRecentEpisodes && mostRecentEpisodes?.map(episode => (
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>

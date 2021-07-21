@@ -9,15 +9,15 @@ const router = express.Router()
 const validateEpisode = [
     check('title')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a podcast name.')
+        .withMessage('Please provide a episode name.')
         .isLength({ min: 4 })
-        .withMessage('Please provide a podcast name with at least 4 characters.'),
+        .withMessage('Please provide a episode name with at least 4 characters.'),
     check('description')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a description.'),
     check('imageUrl')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a podcast image.'),
+        .withMessage('Please provide a episode image.'),
     check('mp3file')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a mp3 file.'),
@@ -57,6 +57,7 @@ router.put('/:id', validateEpisode, asyncHandler(async (req, res) => {
     episode.description = req.body.description
     episode.imageUrl = req.body.imageUrl
     episode.mp3file = req.body.mp3file
+    episode.totalPlays = req.body.totalPlays
     await episode.save()
     return res.json({ episode })
 }))
