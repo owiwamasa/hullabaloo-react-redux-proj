@@ -41,7 +41,6 @@ function ProfilePage({ podcasts, episodes, followers }) {
                                 <div className='profile-page-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                                 <img className='profile-page-followed-podcast-list-image' src={follow?.Podcast?.imageUrl} alt={follow?.Podcast?.name} />
                             </Link>
-                            {/* <div className='home-followed-podcast-list-plays'>Total Plays: {follow.Podcast?.totalPlays}</div> */}
                         </div>
                     ))}
                 </div>

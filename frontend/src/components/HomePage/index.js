@@ -24,7 +24,6 @@ function HomePage({ podcasts, episodes, followers }) {
                                 <div className='home-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                                 <img className='home-followed-podcast-list-image' src={follow?.Podcast?.imageUrl} alt={follow?.Podcast?.name} />
                             </Link>
-                            {/* <div className='home-followed-podcast-list-plays'>Total Plays: {follow.Podcast?.totalPlays}</div> */}
                         </div>
                     ))}
                 </div>
