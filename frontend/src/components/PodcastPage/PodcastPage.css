@@ -57,20 +57,32 @@
 
 .podcast-page-episode {
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 500;
+    height: 25px;
+    width: 300px;
     padding: 5px 15px;
-    margin: 10px 20px;
-    display: flex;
-    justify-content: center;
+    margin: 10px 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     text-align: center;
 }
 
-.podcast-page-episodes-list img {
+.podcast-page-episode-image-div {
     width: 330px;
-    height: auto;
-    margin: 0px 25px;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow-y: hidden;
     margin-bottom: 80px;
+}
+
+.podcast-page-episode-image-div img {
+    width: 100%;
+    height: 100%;
 }
 
 .podcast-page-info {
@@ -92,10 +104,16 @@
 }
 
 .podcast-page-profile-pic {
+    margin-top: 15px;
     overflow-x: hidden;
     overflow-y: hidden;
     border-radius: 700px;
-    margin-top: 15px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(50, 50, 50);
+    border: 5px solid yellow;
+    display: flex;
+    justify-content: center;
 }
 
 .podcast-page-profile-pic img{

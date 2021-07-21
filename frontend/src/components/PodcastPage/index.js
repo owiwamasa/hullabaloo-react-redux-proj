@@ -18,7 +18,7 @@ function PodcastPage({ podcasts, episodes }) {
                 <div className='podcast-page-user-info'>
                     <div className='podcast-page-username'>Created by {podcastUser?.username}</div>
                     <div className='podcast-page-profile-pic'>
-                        <img src={podcastUser?.profilePic} />
+                        <img src={podcastUser?.profilePic} alt='profile pic' />
                     </div>
                     <div className='podcast-page-description'>{podcast?.description}</div>
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
@@ -29,9 +29,11 @@ function PodcastPage({ podcasts, episodes }) {
                 {podcastEpisodes?.map(episode => (
                     <div className='podcast-page-episodes-list' key={episode?.id}>
                         <div className='podcast-page-episode'>{episode?.title}</div>
-                        <Link to={`/episodes/${episode?.id}`}>
-                            <img src={episode?.imageUrl} alt='episode' />
-                        </Link>
+                        <div className='podcast-page-episode-image-div'>
+                            <Link to={`/episodes/${episode?.id}`}>
+                                <img src={episode?.imageUrl} alt='episode' />
+                            </Link>
+                        </div>
                     </div>
                 ))}
             </div>

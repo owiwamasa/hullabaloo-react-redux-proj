@@ -24,7 +24,7 @@ function EpisodePage({ episodes, podcasts, users }) {
                 <div className='episode-page-user-description'>
                     <div className='episode-page-user'>Created by {user?.username}</div>
                     <div className='episode-page-profile-pic'>
-                        <img src={user?.profilePic} />
+                        <img src={user?.profilePic} alt='profile pic' />
                     </div>
                     <div className='episode-page-description'>{episode?.description}</div>
                     <Link className='episode-page-podcast-link' to={`/podcasts/${podcast?.id}`}>

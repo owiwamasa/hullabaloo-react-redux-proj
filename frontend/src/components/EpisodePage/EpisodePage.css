@@ -85,10 +85,16 @@
 }
 
 .episode-page-profile-pic {
+    margin-top: 15px;
     overflow-x: hidden;
     overflow-y: hidden;
     border-radius: 700px;
-    margin-top: 15px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(50, 50, 50);
+    border: 5px solid yellow;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 

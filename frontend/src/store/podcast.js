@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf'
 
 const ALL_PODS = 'podcast/ALL_PODS'
 const CREATE_POD = 'podcast/CREATE_POD'
+const EDIT_POD = 'podcast/EDIT_POD'
 const DELETE_POD = 'podcast/DELETE_POD'
 
 
@@ -12,6 +13,11 @@ const allPods = list => ({
 
 const createPod = (podcast) => ({
     type: CREATE_POD,
+    podcast
+})
+
+const editPod = (podcast) => ({
+    type: EDIT_POD,
     podcast
 })
 
@@ -46,7 +52,7 @@ export const editPodcast = (payload, podcastId) => async dispatch => {
         body: JSON.stringify(payload)
     })
     const podcast = await res.json()
-    dispatch(createPod(podcast))
+    if (res.ok) dispatch(editPod(podcast))
     return podcast
 }
 
@@ -72,6 +78,37 @@ const podcastReducer = (state = {}, action) => {
             newState = { ...state }
             newState.allPodcasts = [...state.allPodcasts, action.podcast]
             return newState
+        case EDIT_POD:
+            newState = {}
+            for (let key in state) {
+                newState[key] = state[key]
+            }
+            const copyAllPodcasts = []
+            state.allPodcasts.forEach(podcast => {
+                if (podcast.id !== action.podcast.id) {
+                    copyAllPodcasts.push(podcast)
+                }
+            })
+            newState.allPodcasts = [...copyAllPodcasts, action.podcast]
+            return newState
+
+        // newState = {}
+        // const copyAllPodcasts = [...state.allPodcasts]
+        // const newCopyArr = []
+        // copyAllPodcasts.forEach(podcast => {
+        //     if (podcast.id !== action.podcast.id) {
+        //         newCopyArr.push(podcast)
+        //     }
+        // })
+        // newState.allPodcasts = [...newCopyArr, action.podcast]
+        // newState = { ...state, ...newState.allPodcasts }
+        // return newState
+
+        // newState = { ...state }
+        // const copyAllPodcasts = [...newState.allPodcasts]
+        // const allPodcastsNew = copyAllPodcasts.filter(podcast => podcast.id !== action.podcast.id)
+        // newState.allPodcasts = [...allPodcastsNew, action.podcast]
+        // return newState
         case DELETE_POD:
             newState = { ...state }
             const newAllPodcasts = newState.allPodcasts.filter(podcast => podcast.id !== action.podcastId)

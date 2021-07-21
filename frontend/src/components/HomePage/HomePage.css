@@ -1,0 +1,103 @@
+.most-podcast-title {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.home-podcast-list-link {
+    text-decoration: none;
+    color: black;
+}
+
+.home-podcast-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-top: 40px;
+}
+
+.home-podcast-list-each{
+    margin: 0px 20px;
+}
+
+.home-podcast-list-name {
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.home-podcast-list-image {
+    width: 300px;
+    height: auto;
+}
+
+.home-podcast-list-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    text-align: end;
+}
+
+
+
+
+
+
+.most-episode-title {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.home-episode-list-link {
+    text-decoration: none;
+    color: black;
+}
+
+.home-episode-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-top: 40px;
+}
+
+.home-episode-list-each{
+    margin: 0px 20px;
+}
+
+.home-episode-list-title {
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.home-episode-list-image-div {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.home-episode-list-image {
+    width: 100%;
+    height: auto;
+}
+
+.home-episode-list-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    text-align: end;
+}

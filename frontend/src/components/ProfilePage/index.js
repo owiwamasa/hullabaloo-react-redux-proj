@@ -2,8 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import CreatePodcastModal from '../CreatePodcastModal'
 import EditPodcastModal from '../EditPodcastModal'
+import CreateEpisodeModal from '../CreateEpisodeModal'
+import EditEpisodeModal from '../EditEpisodeModal';
 import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
+import { deleteEpisode } from '../../store/episode'
 
 function ProfilePage({ podcasts, episodes }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -13,6 +16,10 @@ function ProfilePage({ podcasts, episodes }) {
 
     const deletePod = (podcastId) => {
         return dispatch(deletePodcast(podcastId))
+    }
+
+    const deleteOneEpisode = (episodeId) => {
+        return dispatch(deleteEpisode(episodeId))
     }
 
     return (
@@ -31,11 +38,11 @@ function ProfilePage({ podcasts, episodes }) {
                         <div className='profile-page-podcasts' key={podcast?.id}>
                             <div className='profile-page-podcast-title'>{podcast?.name}</div>
                             <Link to={`/podcasts/${podcast?.id}`}>
-                                <img className='profile-page-podcast-image' src={podcast?.imageUrl} />
+                                <img className='profile-page-podcast-image' src={podcast?.imageUrl} alt='podcast' />
                             </Link>
                             <div className='profile-page-podcast-plays'>Total Plays: {podcast?.totalPlays}</div>
                             <div className='profile-page-edit-btns'>
-                                <button className='profile-page-btn'>Add New Episode</button>
+                                <CreateEpisodeModal podcastId={podcast?.id} />
                                 <EditPodcastModal podcastId={podcast?.id} />
                                 <button className='profile-page-btn' onClick={() => deletePod(podcast?.id)}>Delete Podcast</button>
                             </div>
@@ -49,13 +56,13 @@ function ProfilePage({ podcasts, episodes }) {
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>
-                                <img className='profile-page-episode-image' src={episode?.imageUrl} />
+                                <img className='profile-page-episode-image' src={episode?.imageUrl} alt='episode' />
                             </Link>
-                            <div className='profile-page-episode-podcast-title'>{episode?.Podcast.name}</div>
+                            <div className='profile-page-episode-podcast-title'>{episode?.Podcast?.name}</div>
                             <div className='profile-page-episode-plays'>Total Plays: {episode?.totalPlays}</div>
                             <div className='profile-page-episode-edit-btns'>
-                                <button className='profile-page-btn'>Edit Episode</button>
-                                <button className='profile-page-btn'>Delete Episode</button>
+                                <EditEpisodeModal episodeId={episode?.id} podcastId={episode.podcastId} />
+                                <button className='profile-page-btn' onClick={() => deleteOneEpisode(episode?.id)}>Delete Episode</button>
                             </div>
                         </div>
                     ))}
