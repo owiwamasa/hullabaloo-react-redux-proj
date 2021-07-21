@@ -1,17 +1,61 @@
 import { useParams, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { editPodcast } from '../../store/podcast'
+import { editEpisode } from '../../store/episode'
 import './EpisodePage.css'
 
 function EpisodePage({ episodes, podcasts, users }) {
     const { id } = useParams()
+    const dispatch = useDispatch()
     const episode = episodes?.find(episode => episode.id === +id)
     const podcastId = episode?.podcastId
     const userId = episode?.userId
     const podcast = podcasts?.find(podcast => podcast.id === podcastId)
     const user = users?.find(user => user.id === userId)
+    let count = 0;
+
+    const playIncrement = () => {
+        if (count < 1) {
+            count++
+            let episodeTotal = parseInt(episode.totalPlays, 10)
+            const newEpisodeTotal = episodeTotal + 1
+            console.log(newEpisodeTotal)
+
+            const episodePayload = {
+                title: episode?.title,
+                description: episode?.description,
+                imageUrl: episode?.imageUrl,
+                mp3file: episode?.mp3file,
+                totalPlays: newEpisodeTotal
+            }
+            let podcastTotal = parseInt(podcast.totalPlays, 10)
+            const newPodcastTotal = podcastTotal + 1
+            console.log(newPodcastTotal)
+
+            const podcastPayload = {
+                name: podcast?.name,
+                description: podcast?.description,
+                imageUrl: podcast?.imageUrl,
+                totalPlays: newPodcastTotal
+            }
+            dispatch(editEpisode(episodePayload, episode?.id))
+            dispatch(editPodcast(podcastPayload, podcast?.id))
+        }
+        return
+    }
+
+    useEffect(() => {
+        const audioPlayer = document.querySelector('.episode-page-audio')
+        audioPlayer?.addEventListener('play', (e) => {
+            playIncrement()
+        })
+    }, [])
 
     return (
         <div className='episode-page-container'>
             <div className='episode-page-title'>{episode?.title}</div>
+            <div className='episode-page-date'>{episode?.releaseDate}</div>
             <div className='episode-page-podcast-name'>{podcast?.name}</div>
             <div className='episode-page-info'>
                 <div className='episode-page-image-container'>

@@ -73,3 +73,9 @@
     font-weight: bolder;
     font-size: 15px;
 }
+
+.edit-episode-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

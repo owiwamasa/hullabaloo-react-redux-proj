@@ -17,7 +17,7 @@ function CreateEpisodeForm({ setShowModal, podcastId }) {
         setErrors([])
 
         const payload = {
-            title, description, imageUrl, mp3file, podcastId, userId: sessionUser?.id
+            title, description, imageUrl, mp3file, releaseDate: new Date(), totalPlays: 0, podcastId, userId: sessionUser?.id
         }
 
         return dispatch(createEpisode(payload)).then(() => setShowModal(false))
@@ -32,69 +32,75 @@ function CreateEpisodeForm({ setShowModal, podcastId }) {
             <form onSubmit={onSubmit}>
                 <div className='create-episode-content'>
                     <h3 className='create-episode-h3'>Create New Episode</h3>
-                    <ul className='errors'>
-                        {errors && errors.map((err, idx) => (
-                            <li key={idx}>{err}</li>
-                        ))}
-                    </ul>
-                    <div className='create-episode-title-input'>
-                        <label
-                            className='create-episode-label'
-                            htmlFor='title'>
-                            Title:
-                        </label>
-                        <input
-                            className='create-episode-input-title'
-                            type='text'
-                            name='title'
-                            value={title}
-                            onChange={e => setTitle(e.target.value)}
-                            required>
-                        </input>
+                    <div className='errors-container'>
+                        <ul className='errors'>
+                            {errors && errors.map((err, idx) => (
+                                <li key={idx}>{err}</li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className='create-episode-description-input'>
-                        <label
-                            className='create-episode-label'
-                            htmlFor='description'>
-                            Description:
-                        </label>
-                        <textarea
-                            className='create-episode-input create-episode-description'
-                            name='description'
-                            value={description}
-                            onChange={e => setDescription(e.target.value)}
-                            required>
-                        </textarea>
-                    </div>
-                    <div className='create-episode-image-input'>
-                        <label
-                            className='create-episode-label'
-                            htmlFor='imageUrl'>
-                            Image URL:
-                        </label>
-                        <input
-                            className='create-episode-input-image'
-                            type='text'
-                            name='imageUrl'
-                            value={imageUrl}
-                            onChange={e => setImageUrl(e.target.value)}
-                            required>
-                        </input>
-                    </div>
-                    <div className='create-episode-mp3file-input'>
-                        <label
-                            className='create-episode-label'
-                            htmlFor='mp3file'>
-                            mp3 File:
-                        </label>
-                        <input
-                            className='create-episode-input-mp3file'
-                            type='text'
-                            name='mp3file'
-                            value={mp3file}
-                            onChange={e => setMp3file(e.target.value)}
-                            required>
-                        </input>
+                    <div className='create-episode-inputs'>
+                        <div>
+                            <div className='create-episode-title-input'>
+                                <label
+                                    className='create-episode-label'
+                                    htmlFor='title'>
+                                    Title:
+                                </label>
+                                <input
+                                    className='create-episode-input-title'
+                                    type='text'
+                                    name='title'
+                                    value={title}
+                                    onChange={e => setTitle(e.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='create-episode-description-input'>
+                                <label
+                                    className='create-episode-label'
+                                    htmlFor='description'>
+                                    Description:
+                                </label>
+                                <textarea
+                                    className='create-episode-input create-episode-description'
+                                    name='description'
+                                    value={description}
+                                    onChange={e => setDescription(e.target.value)}
+                                >
+                                </textarea>
+                            </div>
+                            <div className='create-episode-image-input'>
+                                <label
+                                    className='create-episode-label'
+                                    htmlFor='imageUrl'>
+                                    Image URL:
+                                </label>
+                                <input
+                                    className='create-episode-input-image'
+                                    type='text'
+                                    name='imageUrl'
+                                    value={imageUrl}
+                                    onChange={e => setImageUrl(e.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='create-episode-mp3file-input'>
+                                <label
+                                    className='create-episode-label'
+                                    htmlFor='mp3file'>
+                                    mp3 File:
+                                </label>
+                                <input
+                                    className='create-episode-input-mp3file'
+                                    type='text'
+                                    name='mp3file'
+                                    value={mp3file}
+                                    onChange={e => setMp3file(e.target.value)}
+                                >
+                                </input>
+                            </div>
+                        </div>
                     </div>
                     <div className='create-episode-submit-btn'>
                         <button

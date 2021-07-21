@@ -5,6 +5,9 @@ function PodcastPage({ podcasts, episodes }) {
     const { id } = useParams()
     const podcast = podcasts?.find(pod => pod.id === +id)
     const podcastEpisodes = episodes?.filter(episode => episode.podcastId === +id)
+    const episodesCopy = []
+    podcastEpisodes?.forEach(episode => episodesCopy.push(episode))
+    const mostRecentEpisodes = episodesCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
 
     const podcastUser = podcast?.User
 
@@ -26,7 +29,7 @@ function PodcastPage({ podcasts, episodes }) {
             </div>
             <div className='podcast-page-episodes-title'>Episodes</div>
             <div className='podcast-page-episodes-scroll'>
-                {podcastEpisodes?.map(episode => (
+                {mostRecentEpisodes?.map(episode => (
                     <div className='podcast-page-episodes-list' key={episode?.id}>
                         <div className='podcast-page-episode'>{episode?.title}</div>
                         <div className='podcast-page-episode-image-div'>
@@ -34,6 +37,7 @@ function PodcastPage({ podcasts, episodes }) {
                                 <img src={episode?.imageUrl} alt='episode' />
                             </Link>
                         </div>
+                        <div className='podcast-page-episode-date'>{episode?.releaseDate}</div>
                     </div>
                 ))}
             </div>

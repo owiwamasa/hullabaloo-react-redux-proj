@@ -41,11 +41,11 @@
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     text-align: end;
+    font-weight: bold;
 }
 
 
-
-
+/* MOST PLAYED EPISODES */
 
 
 .most-episode-title {
@@ -65,6 +65,7 @@
     flex-direction: row;
     overflow-x: scroll;
     margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .home-episode-list-each{
@@ -89,6 +90,7 @@
     justify-content: center;
     align-items: center;
     background-color: black;
+    overflow-y: hidden;
 }
 
 .home-episode-list-image {
@@ -100,4 +102,66 @@
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     text-align: end;
+    font-weight: bold;
+}
+
+
+/* RECENT EPISODES */
+
+
+.recent-episode-title {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.recent-episode-list-link {
+    text-decoration: none;
+    color: black;
+}
+
+.recent-episode-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 40px;
+}
+
+.recent-episode-list-each{
+    margin: 0px 20px;
+}
+
+.recent-episode-list-title {
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recent-episode-list-image-div {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow-y: hidden;
+}
+
+.recent-episode-list-image {
+    width: 100%;
+    height: auto;
+}
+
+.recent-episode-date {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    text-align: end;
+    font-weight: bold;
 }

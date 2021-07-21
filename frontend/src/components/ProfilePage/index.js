@@ -12,6 +12,13 @@ function ProfilePage({ podcasts, episodes }) {
     const sessionUser = useSelector(state => state.session.user);
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
+    const episodeCopy = []
+    userEpisodes?.forEach(episode => episodeCopy.push(episode))
+    const podcastCopy = []
+    userPodcasts?.forEach(podcast => podcastCopy.push(podcast))
+    const mostRecentEpisodes = episodeCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
+    const mostRecentPodcasts = podcastCopy?.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1)
+
     const dispatch = useDispatch()
 
     const deletePod = (podcastId) => {
@@ -34,7 +41,7 @@ function ProfilePage({ podcasts, episodes }) {
             <div className='profile-page-container'>
                 <div className='profile-page-podcasts-container'>
                     <div className='profile-page-podcast-user'>{sessionUser?.username}'s Podcasts</div>
-                    {userPodcasts && userPodcasts?.map(podcast => (
+                    {mostRecentPodcasts && mostRecentPodcasts?.map(podcast => (
                         <div className='profile-page-podcasts' key={podcast?.id}>
                             <div className='profile-page-podcast-title'>{podcast?.name}</div>
                             <Link to={`/podcasts/${podcast?.id}`}>
@@ -52,7 +59,7 @@ function ProfilePage({ podcasts, episodes }) {
 
                 <div className='profile-page-episodes-container'>
                     <div className='profile-page-episode-user'>{sessionUser?.username}'s Episodes</div>
-                    {userEpisodes && userEpisodes?.map(episode => (
+                    {mostRecentEpisodes && mostRecentEpisodes?.map(episode => (
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>

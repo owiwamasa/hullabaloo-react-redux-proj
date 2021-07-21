@@ -25,40 +25,44 @@ const LoginForm = () => {
             <form onSubmit={onSubmit}>
                 <div className='login-content'>
                     <h3 className='login-h3'>Log In</h3>
-                    <ul className='errors'>
-                        {errors && errors.map((err, idx) => (
-                            <li key={idx}>{err}</li>
-                        ))}
-                    </ul>
-                    <div className='login-credentials-input'>
-                        <label
-                            className='login-label'
-                            htmlFor='credential'>
-                            Username:
-                        </label>
-                        <input
-                            className='login-input'
-                            type='text'
-                            name='credential'
-                            value={credential}
-                            onChange={e => setCredential(e.target.value)}
-                            required>
-                        </input>
+                    <div className='errors-container'>
+                        <ul className='errors'>
+                            {errors && errors.map((err, idx) => (
+                                <li key={idx}>{err}</li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className='login-password-input'>
-                        <label
-                            className='login-label'
-                            htmlFor='password'>
-                            Password:
-                        </label>
-                        <input
-                            className='login-input'
-                            type='password'
-                            name='password'
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            required>
-                        </input>
+                    <div className='login-inputs'>
+                        <div className='login-credentials-input'>
+                            <label
+                                className='login-label'
+                                htmlFor='credential'>
+                                Username:
+                            </label>
+                            <input
+                                className='login-input'
+                                type='text'
+                                name='credential'
+                                value={credential}
+                                onChange={e => setCredential(e.target.value)}
+                            >
+                            </input>
+                        </div>
+                        <div className='login-password-input'>
+                            <label
+                                className='login-label'
+                                htmlFor='password'>
+                                Password:
+                            </label>
+                            <input
+                                className='login-input'
+                                type='password'
+                                name='password'
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            >
+                            </input>
+                        </div>
                     </div>
                     <div className='login-submit-btn'>
                         <button

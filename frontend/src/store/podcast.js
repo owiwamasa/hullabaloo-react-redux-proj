@@ -79,36 +79,16 @@ const podcastReducer = (state = {}, action) => {
             newState.allPodcasts = [...state.allPodcasts, action.podcast]
             return newState
         case EDIT_POD:
-            newState = {}
-            for (let key in state) {
-                newState[key] = state[key]
-            }
-            const copyAllPodcasts = []
-            state.allPodcasts.forEach(podcast => {
-                if (podcast.id !== action.podcast.id) {
-                    copyAllPodcasts.push(podcast)
+            newState = { ...state };
+            newState.allPodcasts.forEach((podcast) => {
+                if (podcast.id === action.podcast.podcast.id) {
+                    podcast.name = action.podcast.podcast.name;
+                    podcast.description = action.podcast.podcast.description;
+                    podcast.imageUrl = action.podcast.podcast.imageUrl;
+                    podcast.totalPlays = action.podcast.podcast.totalPlays;
                 }
-            })
-            newState.allPodcasts = [...copyAllPodcasts, action.podcast]
-            return newState
-
-        // newState = {}
-        // const copyAllPodcasts = [...state.allPodcasts]
-        // const newCopyArr = []
-        // copyAllPodcasts.forEach(podcast => {
-        //     if (podcast.id !== action.podcast.id) {
-        //         newCopyArr.push(podcast)
-        //     }
-        // })
-        // newState.allPodcasts = [...newCopyArr, action.podcast]
-        // newState = { ...state, ...newState.allPodcasts }
-        // return newState
-
-        // newState = { ...state }
-        // const copyAllPodcasts = [...newState.allPodcasts]
-        // const allPodcastsNew = copyAllPodcasts.filter(podcast => podcast.id !== action.podcast.id)
-        // newState.allPodcasts = [...allPodcastsNew, action.podcast]
-        // return newState
+            });
+            return newState;
         case DELETE_POD:
             newState = { ...state }
             const newAllPodcasts = newState.allPodcasts.filter(podcast => podcast.id !== action.podcastId)
