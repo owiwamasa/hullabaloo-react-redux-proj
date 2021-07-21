@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import './EditPodcastForm.css'
-import { editPodcast } from '../../store/podcast'
+import './CreateEpisodeForm.css'
+import { createEpisode } from '../../store/episode'
 
-function EditPodcastForm({ podcastId, setShowModal }) {
+function CreateEpisodeForm({ setShowModal, podcastId }) {
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState('')
+    const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const [mp3file, setMp3file] = useState('')
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
 
@@ -16,64 +17,63 @@ function EditPodcastForm({ podcastId, setShowModal }) {
         setErrors([])
 
         const payload = {
-            name, description, imageUrl, userId: sessionUser?.id
+            title, description, imageUrl, mp3file, podcastId, userId: sessionUser?.id
         }
 
-        return dispatch(editPodcast(payload, podcastId)).then(() => setShowModal(false))
+        return dispatch(createEpisode(payload)).then(() => setShowModal(false))
             .catch(async (res) => {
-                console.log(res)
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
     }
 
     return (
-        <div className='edit-podcast-form-div'>
+        <div className='create-episode-form-div'>
             <form onSubmit={onSubmit}>
-                <div className='edit-podcast-content'>
-                    <h3 className='edit-podcast-h3'>Edit Podcast</h3>
+                <div className='create-episode-content'>
+                    <h3 className='create-episode-h3'>Create New Episode</h3>
                     <ul className='errors'>
                         {errors && errors.map((err, idx) => (
                             <li key={idx}>{err}</li>
                         ))}
                     </ul>
-                    <div className='edit-podcast-name-input'>
+                    <div className='create-episode-title-input'>
                         <label
-                            className='edit-podcast-label'
-                            htmlFor='name'>
-                            Name:
+                            className='create-episode-label'
+                            htmlFor='title'>
+                            Title:
                         </label>
                         <input
-                            className='edit-podcast-input-name'
+                            className='create-episode-input-title'
                             type='text'
-                            name='name'
-                            value={name}
-                            onChange={e => setName(e.target.value)}
+                            name='title'
+                            value={title}
+                            onChange={e => setTitle(e.target.value)}
                             required>
                         </input>
                     </div>
-                    <div className='edit-podcast-description-input'>
+                    <div className='create-episode-description-input'>
                         <label
-                            className='edit-podcast-label'
+                            className='create-episode-label'
                             htmlFor='description'>
                             Description:
                         </label>
                         <textarea
-                            className='edit-podcast-input edit-podcast-description'
+                            className='create-episode-input create-episode-description'
                             name='description'
                             value={description}
                             onChange={e => setDescription(e.target.value)}
                             required>
                         </textarea>
                     </div>
-                    <div className='edit-podcast-image-input'>
+                    <div className='create-episode-image-input'>
                         <label
-                            className='edit-podcast-label'
+                            className='create-episode-label'
                             htmlFor='imageUrl'>
                             Image URL:
                         </label>
                         <input
-                            className='edit-podcast-input-image'
+                            className='create-episode-input-image'
                             type='text'
                             name='imageUrl'
                             value={imageUrl}
@@ -81,9 +81,24 @@ function EditPodcastForm({ podcastId, setShowModal }) {
                             required>
                         </input>
                     </div>
-                    <div className='edit-podcast-submit-btn'>
+                    <div className='create-episode-mp3file-input'>
+                        <label
+                            className='create-episode-label'
+                            htmlFor='mp3file'>
+                            mp3 File:
+                        </label>
+                        <input
+                            className='create-episode-input-mp3file'
+                            type='text'
+                            name='mp3file'
+                            value={mp3file}
+                            onChange={e => setMp3file(e.target.value)}
+                            required>
+                        </input>
+                    </div>
+                    <div className='create-episode-submit-btn'>
                         <button
-                            className='edit-podcast-btn'
+                            className='create-episode-btn'
                             type='submit'
                         >
                             Submit
@@ -96,4 +111,4 @@ function EditPodcastForm({ podcastId, setShowModal }) {
 }
 
 
-export default EditPodcastForm
+export default CreateEpisodeForm

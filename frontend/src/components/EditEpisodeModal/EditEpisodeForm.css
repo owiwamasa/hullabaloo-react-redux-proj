@@ -1,0 +1,75 @@
+#edit-episode-btn {
+    background-color: rgb(233, 233, 233);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 15px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.edit-episode-form-div {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-episode-content {
+    border: 3px solid black;
+    border-radius: 100px;
+    padding: 80px;
+}
+
+.edit-episode-h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.edit-episode-label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.edit-episode-title-input, .edit-episode-description-input, .edit-episode-image-input, .edit-episode-mp3file-input {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.edit-episode-input-image, .edit-episode-input-title, .edit-episode-input-mp3file   {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    width: 200px;
+}
+
+.edit-episode-description {
+    resize: none;
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.edit-episode-submit-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.edit-episode-btn {
+    border-radius: 25px;
+    padding: 11px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+}
