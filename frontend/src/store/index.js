@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import podcastReducer from "./podcast";
 import sessionReducer from "./session";
 import episodeReducer from "./episode";
+import followerReducer from "./follower";
 import userReducer from "./user";
 
 
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   podcast: podcastReducer,
   episode: episodeReducer,
-  user: userReducer
+  user: userReducer,
+  follower: followerReducer,
 });
 
 let enhancer;

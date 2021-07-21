@@ -1,15 +1,35 @@
 import { useParams, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { addFollower } from '../../store/follower'
 import './PodcastPage.css'
 
-function PodcastPage({ podcasts, episodes }) {
+function PodcastPage({ podcasts, episodes, followers }) {
     const { id } = useParams()
     const podcast = podcasts?.find(pod => pod.id === +id)
     const podcastEpisodes = episodes?.filter(episode => episode.podcastId === +id)
     const episodesCopy = []
     podcastEpisodes?.forEach(episode => episodesCopy.push(episode))
     const mostRecentEpisodes = episodesCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
-
     const podcastUser = podcast?.User
+    const sessionUser = useSelector(state => state.session.user);
+    const follower = followers?.filter(follower => (follower.podcastId === podcast?.id))
+    const following = follower?.find(follow => follow.userId === sessionUser?.id)
+    const dispatch = useDispatch()
+    const [isFollower, setIsFollower] = useState(false)
+
+    useEffect(() => {
+        if (following !== undefined) {
+            setIsFollower(false)
+        } else {
+            setIsFollower(true)
+        }
+    }, [following])
+
+    const follow = () => {
+        dispatch(addFollower(sessionUser?.id, podcast?.id))
+        setIsFollower(true)
+    }
 
     return (
         <div className='podcast-page-container'>
@@ -23,6 +43,9 @@ function PodcastPage({ podcasts, episodes }) {
                     <div className='podcast-page-profile-pic'>
                         <img src={podcastUser?.profilePic} alt='profile pic' />
                     </div>
+                    {isFollower ? <button className='podcast-page-follow-btn' onClick={follow}>Follow {podcast?.name}</button>
+                        : <button className='podcast-page-follow-btn' disabled={true} >✓ Following {podcast?.name}</button>}
+
                     <div className='podcast-page-description'>{podcast?.description}</div>
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
                 </div>

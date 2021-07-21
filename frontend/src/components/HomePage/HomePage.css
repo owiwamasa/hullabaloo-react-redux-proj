@@ -1,8 +1,60 @@
-.most-podcast-title {
+.home-followed-podcast-title {
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
     margin-top: 50px;
+}
+
+.home-followed-podcast-list-link {
+    text-decoration: none;
+    color: black;
+}
+
+.home-followed-podcast-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-top: 40px;
+}
+
+.home-followed-podcast-list-each{
+    margin: 0px 20px;
+}
+
+.home-followed-podcast-list-name {
+    font-family: 'Righteous', cursive;
+    font-size: 24px;
+    margin-bottom: 10px;
+    height: 28px;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.home-followed-podcast-list-image {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.home-followed-podcast-list-plays {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-align: end;
+    font-weight: bold;
+}
+
+
+/* MOST PLAYED PODCASTS */
+.most-played-podcasts{
+    margin-top: 50px;
+}
+
+.most-podcast-title {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
 }
 
 .home-podcast-list-link {
@@ -23,9 +75,9 @@
 
 .home-podcast-list-name {
     font-family: 'Righteous', cursive;
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 10px;
-    height: 25px;
+    height: 28px;
     width: 300px;
     overflow: hidden;
     white-space: nowrap;
@@ -35,11 +87,12 @@
 .home-podcast-list-image {
     width: 300px;
     height: auto;
+    border-radius: 20px;
 }
 
 .home-podcast-list-plays {
     font-family: 'Poppins', sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     text-align: end;
     font-weight: bold;
 }
@@ -47,6 +100,8 @@
 
 /* MOST PLAYED EPISODES */
 
+.most-played-episodes{
+}
 
 .most-episode-title {
     text-align: center;
@@ -77,20 +132,21 @@
     font-size: 20px;
     margin-bottom: 10px;
     height: 25px;
-    width: 300px;
+    width: 280px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .home-episode-list-image-div {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
     overflow-y: hidden;
+    border-radius: 40px;
 }
 
 .home-episode-list-image {
@@ -101,12 +157,19 @@
 .home-episode-list-plays {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
-    text-align: end;
+    text-align: center;
     font-weight: bold;
+}
+
+.home-episode-list-podcast {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    text-align: center;
 }
 
 
 /* RECENT EPISODES */
+
 
 
 .recent-episode-title {
@@ -138,20 +201,21 @@
     font-size: 20px;
     margin-bottom: 10px;
     height: 25px;
-    width: 300px;
+    width: 280px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .recent-episode-list-image-div {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
     overflow-y: hidden;
+    border-radius: 40px;
 }
 
 .recent-episode-list-image {
@@ -162,6 +226,12 @@
 .recent-episode-date {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
-    text-align: end;
+    text-align: center;
     font-weight: bold;
+}
+
+.recent-episode-list-podcast {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    text-align: center;
 }

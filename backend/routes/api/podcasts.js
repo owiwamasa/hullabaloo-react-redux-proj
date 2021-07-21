@@ -47,6 +47,7 @@ router.put('/:id', validatePodcast, asyncHandler(async (req, res) => {
     podcast.name = req.body.name
     podcast.description = req.body.description
     podcast.imageUrl = req.body.imageUrl
+    podcast.totalPlays = req.body.totalPlays
     await podcast.save()
     return res.json({ podcast })
 }))

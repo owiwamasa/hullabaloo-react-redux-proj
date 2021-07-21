@@ -57,6 +57,7 @@ router.put('/:id', validateEpisode, asyncHandler(async (req, res) => {
     episode.description = req.body.description
     episode.imageUrl = req.body.imageUrl
     episode.mp3file = req.body.mp3file
+    episode.totalPlays = req.body.totalPlays
     await episode.save()
     return res.json({ episode })
 }))

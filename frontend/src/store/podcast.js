@@ -6,7 +6,7 @@ const EDIT_POD = 'podcast/EDIT_POD'
 const DELETE_POD = 'podcast/DELETE_POD'
 
 
-const allPods = list => ({
+const allPods = (list) => ({
     type: ALL_PODS,
     list
 })
