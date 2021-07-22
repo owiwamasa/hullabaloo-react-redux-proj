@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -6,6 +5,7 @@ import './Navigation.css';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
 import * as sessionActions from '../../store/session'
+import { getSearchPodcasts } from '../../store/podcast';
 import logo from '../../images/comedy-heads.png'
 
 function Navigation({ isLoaded }) {
@@ -20,6 +20,7 @@ function Navigation({ isLoaded }) {
     const demoLogin = () => {
         return dispatch(sessionActions.login({ credential: 'Demo', password: 'password' }))
     }
+
 
     let sessionLinks;
     if (sessionUser) {
@@ -41,7 +42,9 @@ function Navigation({ isLoaded }) {
             <button className='logo-btn' onClick={() => goToLanding()} >
                 <img className='navbar-logo' src={logo} alt='logo' />
             </button>
-            <NavLink to="/home" className='nav-home'>Hullabaloo</NavLink>
+            <div className='nav-home-n-search'>
+                <NavLink to="/home" className='nav-home'>Hullabaloo</NavLink>
+            </div>
             {isLoaded && sessionLinks}
         </div>
     );

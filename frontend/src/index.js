@@ -15,6 +15,7 @@ import { getAllFollowers } from './store/follower';
 
 const store = configureStore();
 store.dispatch(getAllPodcasts())
+// store.dispatch(getSearchPodcasts())
 store.dispatch(getAllEpisodes())
 store.dispatch(getAllUsers())
 store.dispatch(getAllFollowers())

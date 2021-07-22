@@ -14,6 +14,7 @@ function EpisodePage({ episodes, podcasts, users }) {
     const podcast = podcasts?.find(podcast => podcast.id === podcastId)
     const user = users?.find(user => user.id === userId)
     let count = 0;
+    console.log(episode)
 
     const playIncrement = () => {
         if (count < 1) {
@@ -48,7 +49,7 @@ function EpisodePage({ episodes, podcasts, users }) {
         audioPlayer?.addEventListener('play', (e) => {
             playIncrement()
         })
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='episode-page-container'>

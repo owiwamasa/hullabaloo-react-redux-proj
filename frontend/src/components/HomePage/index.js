@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import SearchResultsPage from '../SearchResults'
 
 import './HomePage.css'
 
@@ -12,9 +14,26 @@ function HomePage({ podcasts, episodes, followers }) {
     const mostRecentEpisodes = mostRecent.slice(0, 10)
     const sessionUser = useSelector(state => state.session.user);
     const follows = followers?.filter(follow => follow.userId === sessionUser?.id)
+    const [search, setSearch] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+    }
 
     return (
         <div>
+            <form onSubmit={onSubmit}>
+                <input
+                    class='nav-search'
+                    type='search'
+                    name='search'
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder='Search by podcast, episode, username...'>
+                </input>
+            </form>
+            <SearchResultsPage />
             <div className='home-followed-podcasts'>
                 <div className='home-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='home-followed-podcast-list'>

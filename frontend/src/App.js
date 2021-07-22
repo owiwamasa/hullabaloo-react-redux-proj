@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import PodcastPage from "./components/PodcastPage";
 import ProfilePage from "./components/ProfilePage";
 import EpisodePage from './components/EpisodePage'
+import SearchResultsPage from "./components/SearchResults";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const episodes = useSelector(state => state.episode.allEpisodes)
   const followers = useSelector(state => state.follower.allFollowers)
   const users = useSelector(state => state.user.allUsers)
+  // const searchPodcasts = useSelector(state => state.podcast.allSearchPodcasts)
 
   return (
     <>
@@ -42,6 +44,9 @@ function App() {
           </Route>
           <Route path='/episodes/:id'>
             <EpisodePage users={users} podcasts={podcasts} episodes={episodes} />
+          </Route>
+          <Route path='/search'>
+            <SearchResultsPage users={podcasts} searchPodcasts={podcasts} episodes={episodes} />
           </Route>
         </Switch>
       )

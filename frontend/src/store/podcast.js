@@ -34,6 +34,15 @@ export const getAllPodcasts = () => async dispatch => {
     return res
 }
 
+// export const getSearchPodcasts = (search) => async dispatch => {
+//     const res = await fetch(`/api/podcasts/${search}`, {
+//         method: 'GET',
+//     })
+//     const list = await res.json()
+//     dispatch(allPods(list))
+//     return res
+// }
+
 export const createPodcast = (payload) => async dispatch => {
     const res = await csrfFetch('/api/podcasts', {
         method: 'POST',
