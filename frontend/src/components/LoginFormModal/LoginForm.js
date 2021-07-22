@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import * as sessionActions from '../../store/session'
 import { useDispatch } from 'react-redux'
+import SignUpFormModal from '../SignUpFormModal/SignUpForm'
 import './LoginForm.css'
 
 
@@ -24,7 +25,9 @@ const LoginForm = () => {
         <div className='login-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='login-content'>
-                    <h3 className='login-h3'>Log In</h3>
+                    <div className='login-h3-container'>
+                        <h3 className='login-h3'>Log In</h3>
+                    </div>
                     <div className='errors-container'>
                         <ul className='errors'>
                             {errors && errors.map((err, idx) => (

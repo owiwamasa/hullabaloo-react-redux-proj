@@ -1,11 +1,11 @@
 #create-podcast-btn {
     background-color: rgb(233, 233, 233);
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
-    padding: 5px 15px;
+    padding: 10px 25px;
     margin: 10px 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     white-space: nowrap;
 }
 

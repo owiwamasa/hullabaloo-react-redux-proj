@@ -8,6 +8,7 @@ function SignUpFormModal() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [profilePic, setProfilePic] = useState('')
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
 
@@ -15,7 +16,7 @@ function SignUpFormModal() {
         e.preventDefault()
 
         setErrors([])
-        return dispatch(sessionActions.signup({ username, email, password }))
+        return dispatch(sessionActions.signup({ username, email, password, profilePic }))
             .catch(async (res) => {
                 const data = await res.json()
                 if (password !== confirmPassword) data.errors.push('Passwords must match.')
@@ -96,6 +97,22 @@ function SignUpFormModal() {
                                     type='password'
                                     value={confirmPassword}
                                     onChange={e => setConfirmPassword(e.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='signup-profile-pic-input'>
+                                <label
+                                    className='signup-label'
+                                    htmlFor='profilePic'>
+                                    Profile Picture:
+                                </label>
+                                <input
+                                    className='signup-input'
+                                    name='profilePic'
+                                    type='text'
+                                    placeholder='Optional'
+                                    value={profilePic}
+                                    onChange={e => setProfilePic(e.target.value)}
                                 >
                                 </input>
                             </div>

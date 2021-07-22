@@ -69,19 +69,21 @@ function PodcastPage() {
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
                 </div>
             </div>
-            <div className='podcast-page-episodes-title'>Episodes</div>
-            <div className='podcast-page-episodes-scroll'>
-                {mostRecentEpisodes?.map(episode => (
-                    <div className='podcast-page-episodes-list' key={episode?.id}>
-                        <div className='podcast-page-episode'>{episode?.title}</div>
-                        <div className='podcast-page-episode-image-div'>
-                            <Link to={`/episodes/${episode?.id}`}>
-                                <img src={episode?.imageUrl} alt='episode' />
-                            </Link>
+            <div className='podcast-page-episodes-container'>
+                <div className='podcast-page-episodes-title'>Episodes</div>
+                <div className='podcast-page-episodes-scroll'>
+                    {mostRecentEpisodes?.map(episode => (
+                        <div className='podcast-page-episodes-list' key={episode?.id}>
+                            <div className='podcast-page-episode-image-div'>
+                                <Link to={`/episodes/${episode?.id}`}>
+                                    <img src={episode?.imageUrl} alt='episode' />
+                                </Link>
+                            </div>
+                            <div className='podcast-page-episode'>{episode?.title}</div>
+                            <div className='podcast-page-episode-date'>{episode?.releaseDate}</div>
                         </div>
-                        <div className='podcast-page-episode-date'>{episode?.releaseDate}</div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     )

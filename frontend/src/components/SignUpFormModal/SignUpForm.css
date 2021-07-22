@@ -25,7 +25,7 @@
     font-weight: bolder;
 }
 
-.signup-username-input, .signup-email-input, .signup-password-input, .signup-confirm-password-input {
+.signup-username-input, .signup-email-input, .signup-password-input, .signup-confirm-password-input, .signup-profile-pic-input {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;

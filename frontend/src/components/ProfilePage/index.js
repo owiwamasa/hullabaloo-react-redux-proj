@@ -12,6 +12,7 @@ import { getAllFollowers } from '../../store/follower';
 import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
 import { deleteEpisode } from '../../store/episode'
+import logo from '../../images/comedy-heads.png'
 
 function ProfilePage() {
     const podcasts = useSelector(state => state.podcast.allPodcasts)
@@ -19,6 +20,7 @@ function ProfilePage() {
     const followers = useSelector(state => state.follower.allFollowers)
     const users = useSelector(state => state.user.allUsers)
     const sessionUser = useSelector(state => state.session.user);
+
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
     const episodeCopy = []
@@ -54,27 +56,25 @@ function ProfilePage() {
                     <img src={user?.profilePic} alt='profile pic' />
                 </div>
             </div>
-            <div className='profile-page-followed-podcasts'>
+            {follows?.length ? <div className='profile-page-followed-podcasts'>
                 <div className='profile-page-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='profile-page-followed-podcast-list'>
                     {follows && follows?.map(follow => (
                         <div className='profile-page-followed-podcast-list-each' key={follow?.Podcast?.id}>
                             <Link className='profile-page-followed-podcast-list-link' to={`/podcasts/${follow?.Podcast?.id}`}>
-                                <div className='profile-page-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                                 <img className='profile-page-followed-podcast-list-image' src={follow?.Podcast?.imageUrl} alt={follow?.Podcast?.name} />
+                                <div className='profile-page-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                             </Link>
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className='profile-page-create-btn-container'>
-                <div className='profile-page-header'>
-                    <CreatePodcastModal />
-                    <div className='profile-page-titles'>
-                    </div>
-                </div>
-            </div>
+            </div> : null}
             <div className='profile-page-container'>
+                <div className='profile-page-create-btn-container'>
+                    <div className='profile-page-create-title'>CREATE <br></br> NEW <br></br> PODCAST</div>
+                    <img className='profile-page-logo' src={logo} alt='logo' />
+                    <CreatePodcastModal />
+                </div>
                 <div className='profile-page-podcasts-container'>
                     <div className='profile-page-podcast-user'>{sessionUser?.username}'s Podcasts</div>
                     {mostRecentPodcasts && mostRecentPodcasts?.map(podcast => (
@@ -99,7 +99,9 @@ function ProfilePage() {
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>
-                                <img className='profile-page-episode-image' src={episode?.imageUrl} alt='episode' />
+                                <div className='profile-page-episode-image-div'>
+                                    <img className='profile-page-episode-image' src={episode?.imageUrl} alt='episode' />
+                                </div>
                             </Link>
                             <div className='profile-page-episode-podcast-title'>{episode?.Podcast?.name}</div>
                             <div className='profile-page-episode-plays'>Total Plays: {episode?.totalPlays}</div>

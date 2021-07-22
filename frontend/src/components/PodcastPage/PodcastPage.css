@@ -14,6 +14,7 @@
     width: 400px;
     height: auto;
     margin-top: 50px;
+    border-radius: 30px;
 }
 
 .podcast-page-username {
@@ -36,10 +37,11 @@
 }
 
 .podcast-page-episodes-title {
+    text-align: center;
     font-size: 30px;
     font-family: 'Righteous', cursive;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .podcast-page-episodes-scroll {
@@ -52,7 +54,7 @@
 .podcast-page-episodes-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .podcast-page-episode {
@@ -61,12 +63,12 @@
     font-weight: 500;
     height: 25px;
     width: 300px;
-    padding: 5px 15px;
-    margin: 10px 30px;
+    padding: 5px 15px 5px 0px;
+    margin: 10px 30px 5px 20px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-align: center;
+    text-align: left;
 }
 
 .podcast-page-episode-image-div {
@@ -77,6 +79,8 @@
     align-items: center;
     background-color: black;
     overflow-y: hidden;
+    border-radius: 30px;
+    margin: 0px 20px;
 }
 
 .podcast-page-episode-image-div img {
@@ -85,8 +89,9 @@
 }
 
 .podcast-page-episode-date {
-    margin-top: 15px;
+    margin-top: 2px;
     margin-bottom: 80px;
+    margin-left: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
 }
@@ -94,6 +99,7 @@
 .podcast-page-info {
     display: flex;
     align-items: center;
+    margin-top: 20px;
 }
 
 .podcast-page-user-info {

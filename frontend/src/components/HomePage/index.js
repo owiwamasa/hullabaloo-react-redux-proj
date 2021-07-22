@@ -37,7 +37,7 @@ function HomePage() {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}>
                 <input
                     class='nav-search'
                     type='search'
@@ -47,28 +47,30 @@ function HomePage() {
                     placeholder='Search by podcast, episode, username...'>
                 </input>
             </form>
-            <SearchResultsPage />
-            <div className='home-followed-podcasts'>
+            <SearchResultsPage /> */}
+
+            {follows?.length ? <div className='home-followed-podcasts'>
                 <div className='home-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='home-followed-podcast-list'>
                     {follows && follows?.map(follow => (
                         <div className='home-followed-podcast-list-each' key={follow?.Podcast?.id}>
                             <Link className='home-followed-podcast-list-link' to={`/podcasts/${follow?.Podcast?.id}`}>
-                                <div className='home-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                                 <img className='home-followed-podcast-list-image' src={follow?.Podcast?.imageUrl} alt={follow?.Podcast?.name} />
+                                <div className='home-followed-podcast-list-name'>{follow?.Podcast?.name}</div>
                             </Link>
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> : null}
+
             <div className='most-played-podcasts'>
                 <div className='most-podcast-title'>Most Popular Podcasts</div>
                 <div className='home-podcast-list'>
                     {topTenPodcasts && topTenPodcasts?.map(podcast => (
                         <div className='home-podcast-list-each' key={podcast?.id}>
                             <Link className='home-podcast-list-link' to={`/podcasts/${podcast?.id}`}>
-                                <div className='home-podcast-list-name'>{podcast?.name}</div>
                                 <img className='home-podcast-list-image' src={podcast?.imageUrl} alt={podcast?.name} />
+                                <div className='home-podcast-list-name'>{podcast?.name}</div>
                             </Link>
                             <div className='home-podcast-list-plays'>Total Plays: {podcast?.totalPlays}</div>
                         </div>
@@ -82,13 +84,12 @@ function HomePage() {
                         <div className='recent-episode-list-each' key={episode?.id}>
                             <div className='recent-episode-list-link'>
                                 <Link className='recent-episode-list-link' to={`/episodes/${episode?.id}`}>
-                                    <div className='recent-episode-list-title'>{episode?.title}</div>
                                     <div className='recent-episode-list-image-div'>
                                         <img className='recent-episode-list-image' src={episode?.imageUrl} alt={episode?.title} />
                                     </div>
                                 </Link>
+                                <div className='recent-episode-list-title'>{episode?.title}</div>
                                 <div className='recent-episode-list-podcast'>{episode?.Podcast.name}</div>
-                                <div className='recent-episode-date'>{episode?.releaseDate}</div>
                             </div>
                         </div>
                     ))}
@@ -101,13 +102,12 @@ function HomePage() {
                         <div className='home-episode-list-each' key={episode?.id}>
                             <div className='home-episode-list-link'>
                                 <Link className='home-episode-list-link' to={`/episodes/${episode?.id}`}>
-                                    <div className='home-episode-list-title'>{episode?.title}</div>
                                     <div className='home-episode-list-image-div'>
                                         <img className='home-episode-list-image' src={episode?.imageUrl} alt={episode?.title} />
                                     </div>
+                                    <div className='home-episode-list-title'>{episode?.title}</div>
                                 </Link>
                                 <div className='home-episode-list-podcast'>{episode?.Podcast.name}</div>
-                                <div className='home-episode-list-plays'>Total Plays: {episode?.totalPlays}</div>
                             </div>
                         </div>
                     ))}

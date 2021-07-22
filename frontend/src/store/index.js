@@ -4,6 +4,7 @@ import podcastReducer from "./podcast";
 import sessionReducer from "./session";
 import episodeReducer from "./episode";
 import followerReducer from "./follower";
+import commentReducer from './comment'
 import userReducer from "./user";
 
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   episode: episodeReducer,
   user: userReducer,
   follower: followerReducer,
+  comment: commentReducer
 });
 
 let enhancer;

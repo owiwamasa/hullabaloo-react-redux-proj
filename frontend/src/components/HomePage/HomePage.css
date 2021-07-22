@@ -2,7 +2,7 @@
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .home-followed-podcast-list-link {
@@ -24,7 +24,7 @@
 .home-followed-podcast-list-name {
     font-family: 'Righteous', cursive;
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 70px;
     height: 28px;
     width: 300px;
     overflow: hidden;
@@ -48,13 +48,14 @@
 
 /* MOST PLAYED PODCASTS */
 .most-played-podcasts{
-    margin-top: 50px;
+    background-color: rgb(209, 234, 247);
 }
 
 .most-podcast-title {
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
+    padding-top: 50px;
 }
 
 .home-podcast-list-link {
@@ -93,14 +94,16 @@
 .home-podcast-list-plays {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    text-align: end;
+    text-align: start;
     font-weight: bold;
+    margin-bottom: 60px;
 }
 
 
 /* MOST PLAYED EPISODES */
 
 .most-played-episodes{
+    background-color: rgb(209, 234, 247);
 }
 
 .most-episode-title {
@@ -108,6 +111,7 @@
     font-family: 'Righteous', cursive;
     font-size: 30px;
     margin-top: 50px;
+    padding-top: 50px;
 }
 
 .home-episode-list-link {
@@ -120,7 +124,6 @@
     flex-direction: row;
     overflow-x: scroll;
     margin-top: 40px;
-    margin-bottom: 80px;
 }
 
 .home-episode-list-each{
@@ -130,7 +133,8 @@
 .home-episode-list-title {
     font-family: 'Righteous', cursive;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 3px;
     height: 25px;
     width: 280px;
     overflow: hidden;
@@ -154,17 +158,11 @@
     height: auto;
 }
 
-.home-episode-list-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    text-align: center;
-    font-weight: bold;
-}
-
 .home-episode-list-podcast {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
-    text-align: center;
+    text-align: left;
+    padding-bottom: 80px;
 }
 
 
@@ -197,9 +195,10 @@
 }
 
 .recent-episode-list-title {
+    margin-top: 10px;
+    margin-bottom: 5px;
     font-family: 'Righteous', cursive;
     font-size: 20px;
-    margin-bottom: 10px;
     height: 25px;
     width: 280px;
     overflow: hidden;
@@ -223,15 +222,9 @@
     height: auto;
 }
 
-.recent-episode-date {
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    text-align: center;
-    font-weight: bold;
-}
-
 .recent-episode-list-podcast {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
-    text-align: center;
+    text-align: start;
+    margin-bottom: 10px;
 }

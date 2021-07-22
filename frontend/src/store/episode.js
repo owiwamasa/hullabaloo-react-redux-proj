@@ -79,7 +79,6 @@ const episodeReducer = (state = {}, action) => {
             return newState
         case EDIT_EPISODE:
             newState = { ...state };
-            console.log(newState.allEpisodes)
             newState.allEpisodes.forEach((episode) => {
                 if (episode.id === action.episode.episode.id) {
                     episode.title = action.episode.episode.title;

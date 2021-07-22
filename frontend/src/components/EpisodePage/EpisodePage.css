@@ -24,19 +24,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 80px;
     margin-top: 140px;
+    margin-right: 50px;
+}
+
+.episode-page-image-div {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow-y: hidden;
+    border-radius: 40px;
 }
 
 .episode-page-image {
-    max-width: 400px;
-    max-height: 400px;
+    width: 100%;
+    height: auto;
 }
 
 .episode-page-title {
     font-size: 35px;
     font-family: 'Righteous', cursive;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .episode-page-description {
@@ -48,13 +59,22 @@
 }
 
 .episode-page-audio {
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border: 2px solid black;
+    border-radius: 28px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+    background-color: rgb(255, 255, 255);
 }
 
 .episode-page-podcast-name{
-    font-size: 30px;
-    font-family: 'Righteous', cursive;
-    margin-bottom: 55px;
+    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .episode-page-user {
@@ -68,11 +88,11 @@
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .episode-page-date {
-    font-family: 'Righteous', cursive;
+    font-family: 'Poppins', sans-serif;
     font-size: 22px;
 }
 
@@ -106,4 +126,74 @@
 .episode-page-profile-pic img{
     width: auto;
     height: 100px;
+}
+
+
+
+/* COMMENTS */
+
+.episode-page-comment-container {
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+    width: 262px;
+    margin-top: 130px;
+    margin-bottom: 80px;
+}
+
+.episode-page-comment textarea {
+    resize: none;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.episode-page-comment {
+    margin-right: 240px;
+}
+
+.episode-page-comment-btn {
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    background-color: rgb(233,233,233);
+    font-weight: 500;
+    padding: 5px 15px;
+    margin-left: 70px;
+    margin-bottom: 20px;
+}
+
+.episode-page-comment-list-each {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+}
+
+.episode-page-comment-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.episode-page-comment-list-post {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    text-align: start;
+}
+
+.episode-page-comment-list-user {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: end;
+}
+
+.episode-page-comment-list {
 }
