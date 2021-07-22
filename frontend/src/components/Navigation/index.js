@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -21,6 +20,7 @@ function Navigation({ isLoaded }) {
         return dispatch(sessionActions.login({ credential: 'Demo', password: 'password' }))
     }
 
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -41,7 +41,9 @@ function Navigation({ isLoaded }) {
             <button className='logo-btn' onClick={() => goToLanding()} >
                 <img className='navbar-logo' src={logo} alt='logo' />
             </button>
-            <NavLink to="/home" className='nav-home'>Hullabaloo</NavLink>
+            <div className='nav-home-n-search'>
+                <NavLink to="/home" className='nav-home'>Hullabaloo</NavLink>
+            </div>
             {isLoaded && sessionLinks}
         </div>
     );

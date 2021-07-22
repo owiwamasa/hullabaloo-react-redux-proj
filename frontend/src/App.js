@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import PodcastPage from "./components/PodcastPage";
 import ProfilePage from "./components/ProfilePage";
 import EpisodePage from './components/EpisodePage'
+import SearchResultsPage from "./components/SearchResults";
 
 
 function App() {
@@ -17,11 +18,6 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
   }, [dispatch])
-
-  const podcasts = useSelector(state => state.podcast.allPodcasts)
-  const episodes = useSelector(state => state.episode.allEpisodes)
-  const users = useSelector(state => state.user.allUsers)
-  const followers = useSelector(state => state.follower.allFollowers)
 
   return (
     <>
@@ -32,16 +28,19 @@ function App() {
             <LandingPage />
           </Route>
           <Route path='/home'>
-            <HomePage users={users} podcasts={podcasts} episodes={episodes} followers={followers} />
+            <HomePage />
           </Route>
           <Route path='/podcasts/:id'  >
-            <PodcastPage podcasts={podcasts} episodes={episodes} followers={followers} />
+            <PodcastPage />
           </Route>
           <Route path='/users/:id'>
-            <ProfilePage podcasts={podcasts} episodes={episodes} followers={followers} />
+            <ProfilePage />
           </Route>
           <Route path='/episodes/:id'>
-            <EpisodePage users={users} podcasts={podcasts} episodes={episodes} />
+            <EpisodePage />
+          </Route>
+          <Route path='/search'>
+            <SearchResultsPage />
           </Route>
         </Switch>
       )

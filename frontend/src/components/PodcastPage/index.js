@@ -1,10 +1,17 @@
 import { useParams, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
-import { addFollower } from '../../store/follower'
+import { addFollower, removeFollower } from '../../store/follower'
+import { getAllPodcasts } from '../../store/podcast';
+import { getAllEpisodes } from '../../store/episode';
+import { getAllFollowers } from '../../store/follower';
 import './PodcastPage.css'
 
-function PodcastPage({ podcasts, episodes, followers }) {
+function PodcastPage() {
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const followers = useSelector(state => state.follower.allFollowers)
+
     const { id } = useParams()
     const podcast = podcasts?.find(pod => pod.id === +id)
     const podcastEpisodes = episodes?.filter(episode => episode.podcastId === +id)
@@ -13,8 +20,8 @@ function PodcastPage({ podcasts, episodes, followers }) {
     const mostRecentEpisodes = episodesCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
     const podcastUser = podcast?.User
     const sessionUser = useSelector(state => state.session.user);
-    const follower = followers?.filter(follower => (follower.podcastId === podcast?.id))
-    const following = follower?.find(follow => follow.userId === sessionUser?.id)
+    const followerPodList = followers?.filter(follower => (follower.podcastId === podcast?.id))
+    const following = followerPodList?.find(follow => follow.userId === sessionUser?.id)
     const dispatch = useDispatch()
     const [isFollower, setIsFollower] = useState(false)
 
@@ -26,9 +33,21 @@ function PodcastPage({ podcasts, episodes, followers }) {
         }
     }, [following])
 
+    useEffect(() => {
+        dispatch(getAllPodcasts())
+        dispatch(getAllEpisodes())
+        dispatch(getAllFollowers())
+    }, [dispatch])
+
     const follow = () => {
-        dispatch(addFollower(sessionUser?.id, podcast?.id))
+        const payload = { userId: sessionUser?.id, podcastId: podcast?.id }
+        dispatch(addFollower(payload))
         setIsFollower(true)
+    }
+
+    const unfollow = () => {
+        dispatch(removeFollower(following?.id))
+        setIsFollower(false)
     }
 
     return (
@@ -44,8 +63,8 @@ function PodcastPage({ podcasts, episodes, followers }) {
                         <img src={podcastUser?.profilePic} alt='profile pic' />
                     </div>
                     {isFollower ? <button className='podcast-page-follow-btn' onClick={follow}>Follow {podcast?.name}</button>
-                        : <button className='podcast-page-follow-btn' disabled={true} >✓ Following {podcast?.name}</button>}
-
+                        : <button className='podcast-page-follow-btn' onClick={unfollow} >✓ Following {podcast?.name}</button>}
+                    <div className='podcast-page-follower-count'>Followers: {followerPodList?.length}</div>
                     <div className='podcast-page-description'>{podcast?.description}</div>
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
                 </div>

@@ -8,16 +8,8 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session'
 import { ModalProvider } from './context/Modal';
-import { getAllPodcasts } from './store/podcast';
-import { getAllEpisodes } from './store/episode';
-import { getAllUsers } from './store/user';
-import { getAllFollowers } from './store/follower';
 
 const store = configureStore();
-store.dispatch(getAllPodcasts())
-store.dispatch(getAllEpisodes())
-store.dispatch(getAllUsers())
-store.dispatch(getAllFollowers())
 
 if (process.env.NODE_ENV !== 'production') {
   restoreCSRF()
