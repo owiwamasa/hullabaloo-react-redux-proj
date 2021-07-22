@@ -8,7 +8,7 @@ import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
 import { deleteEpisode } from '../../store/episode'
 
-function ProfilePage({ podcasts, episodes, followers }) {
+function ProfilePage({ podcasts, episodes, followers, users }) {
     const sessionUser = useSelector(state => state.session.user);
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
@@ -19,6 +19,7 @@ function ProfilePage({ podcasts, episodes, followers }) {
     const mostRecentEpisodes = episodeCopy?.sort((a, b) => (a.releaseDate < b.releaseDate) ? 1 : -1)
     const mostRecentPodcasts = podcastCopy?.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1)
     const follows = followers?.filter(follow => follow.userId === sessionUser?.id)
+    const user = users?.find(user => user.id === sessionUser.id)
 
     const dispatch = useDispatch()
 
@@ -32,6 +33,11 @@ function ProfilePage({ podcasts, episodes, followers }) {
 
     return (
         <div>
+            <div className='profile-page-pic-container'>
+                <div className='profile-page-pic-div'>
+                    <img src={user?.profilePic} alt='profile pic' />
+                </div>
+            </div>
             <div className='profile-page-followed-podcasts'>
                 <div className='profile-page-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='profile-page-followed-podcast-list'>

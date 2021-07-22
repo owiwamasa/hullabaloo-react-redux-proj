@@ -1,56 +1,3 @@
-.profile-page-followed-podcast-title {
-    text-align: center;
-    font-family: 'Righteous', cursive;
-    font-size: 30px;
-    margin-top: 50px;
-}
-
-.profile-page-followed-podcast-list-link {
-    text-decoration: none;
-    color: black;
-}
-
-.profile-page-followed-podcast-list {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    margin-top: 40px;
-    margin-bottom: 70px;
-}
-
-.profile-page-followed-podcast-list-each{
-    margin: 0px 20px;
-}
-
-.profile-page-followed-podcast-list-name {
-    font-family: 'Righteous', cursive;
-    font-size: 20px;
-    margin-bottom: 10px;
-    height: 28px;
-    width: 250px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.profile-page-followed-podcast-list-image {
-    width: 250px;
-    height: auto;
-    border-radius: 20px;
-}
-
-.profile-page-followed-podcast-list-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    text-align: end;
-    font-weight: bold;
-}
-
-
-
-/* YOUR PODCASTS */
-
-
 .podcast-page-container {
     display: flex;
     flex-direction: column;
@@ -191,4 +138,9 @@
     display: flex;
     justify-content: center;
     white-space: nowrap;
+}
+
+.podcast-page-follower-count {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
 }

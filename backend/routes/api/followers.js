@@ -15,6 +15,14 @@ router.post('/', asyncHandler(async (req, res) => {
     return res.json(follower)
 }))
 
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const { id } = req.params
+    const follower = await Follower.findByPk(id)
+    res.json(follower)
+    await follower.destroy()
+    return
+}))
+
 
 
 
