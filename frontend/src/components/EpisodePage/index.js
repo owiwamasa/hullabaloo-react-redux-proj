@@ -20,7 +20,6 @@ function EpisodePage({ episodes, podcasts, users }) {
             count++
             let episodeTotal = parseInt(episode.totalPlays, 10)
             const newEpisodeTotal = episodeTotal + 1
-            console.log(newEpisodeTotal)
 
             const episodePayload = {
                 title: episode?.title,
@@ -31,7 +30,6 @@ function EpisodePage({ episodes, podcasts, users }) {
             }
             let podcastTotal = parseInt(podcast.totalPlays, 10)
             const newPodcastTotal = podcastTotal + 1
-            console.log(newPodcastTotal)
 
             const podcastPayload = {
                 name: podcast?.name,
