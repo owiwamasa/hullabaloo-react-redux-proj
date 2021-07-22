@@ -1,14 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import CreatePodcastModal from '../CreatePodcastModal'
 import EditPodcastModal from '../EditPodcastModal'
 import CreateEpisodeModal from '../CreateEpisodeModal'
 import EditEpisodeModal from '../EditEpisodeModal';
+import { getAllPodcasts } from '../../store/podcast';
+import { getAllEpisodes } from '../../store/episode';
+import { getAllUsers } from '../../store/user';
+import { getAllFollowers } from '../../store/follower';
 import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
 import { deleteEpisode } from '../../store/episode'
 
-function ProfilePage({ podcasts, episodes, followers, users }) {
+function ProfilePage() {
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const followers = useSelector(state => state.follower.allFollowers)
+    const users = useSelector(state => state.user.allUsers)
     const sessionUser = useSelector(state => state.session.user);
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
@@ -30,6 +39,13 @@ function ProfilePage({ podcasts, episodes, followers, users }) {
     const deleteOneEpisode = (episodeId) => {
         return dispatch(deleteEpisode(episodeId))
     }
+
+    useEffect(() => {
+        dispatch(getAllPodcasts())
+        dispatch(getAllEpisodes())
+        dispatch(getAllUsers())
+        dispatch(getAllFollowers())
+    }, [dispatch])
 
     return (
         <div>

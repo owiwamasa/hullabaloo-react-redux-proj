@@ -2,9 +2,16 @@ import { useParams, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { addFollower, removeFollower } from '../../store/follower'
+import { getAllPodcasts } from '../../store/podcast';
+import { getAllEpisodes } from '../../store/episode';
+import { getAllFollowers } from '../../store/follower';
 import './PodcastPage.css'
 
-function PodcastPage({ podcasts, episodes, followers }) {
+function PodcastPage() {
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const followers = useSelector(state => state.follower.allFollowers)
+
     const { id } = useParams()
     const podcast = podcasts?.find(pod => pod.id === +id)
     const podcastEpisodes = episodes?.filter(episode => episode.podcastId === +id)
@@ -25,6 +32,12 @@ function PodcastPage({ podcasts, episodes, followers }) {
             setIsFollower(true)
         }
     }, [following])
+
+    useEffect(() => {
+        dispatch(getAllPodcasts())
+        dispatch(getAllEpisodes())
+        dispatch(getAllFollowers())
+    }, [dispatch])
 
     const follow = () => {
         const payload = { userId: sessionUser?.id, podcastId: podcast?.id }

@@ -60,18 +60,18 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     return
 }))
 
-router.get('/search', asyncHandler(async (req, res) => {
-    const { search } = req.query
-    console.log('---------', search)
-    const allSearchPodcasts = await Podcast.findAll({
-        where: {
-            [Op.or]: [
-                { name: { [Op.iLike]: '%' + search + '%' } },
-                { description: { [Op.iLike]: '%' + search + '%' } },
-            ]
-        }
-    })
-    return res.json({ allSearchPodcasts })
-}))
+// router.get('/search', asyncHandler(async (req, res) => {
+//     const { search } = req.query
+//     console.log('---------', search)
+//     const allSearchPodcasts = await Podcast.findAll({
+//         where: {
+//             [Op.or]: [
+//                 { name: { [Op.iLike]: '%' + search + '%' } },
+//                 { description: { [Op.iLike]: '%' + search + '%' } },
+//             ]
+//         }
+//     })
+//     return res.json({ allSearchPodcasts })
+// }))
 
 module.exports = router

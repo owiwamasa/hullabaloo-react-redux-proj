@@ -1,11 +1,18 @@
 import { useParams, Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { editPodcast } from '../../store/podcast'
 import { editEpisode } from '../../store/episode'
+import { getAllPodcasts } from '../../store/podcast';
+import { getAllEpisodes } from '../../store/episode';
+import { getAllUsers } from '../../store/user';
 import './EpisodePage.css'
 
-function EpisodePage({ episodes, podcasts, users }) {
+function EpisodePage() {
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const users = useSelector(state => state.user.allUsers)
+
     const { id } = useParams()
     const dispatch = useDispatch()
     const episode = episodes?.find(episode => episode.id === +id)
@@ -14,7 +21,6 @@ function EpisodePage({ episodes, podcasts, users }) {
     const podcast = podcasts?.find(podcast => podcast.id === podcastId)
     const user = users?.find(user => user.id === userId)
     let count = 0;
-    console.log(episode)
 
     const playIncrement = () => {
         if (count < 1) {
@@ -49,6 +55,9 @@ function EpisodePage({ episodes, podcasts, users }) {
         audioPlayer?.addEventListener('play', (e) => {
             playIncrement()
         })
+        dispatch(getAllPodcasts())
+        dispatch(getAllEpisodes())
+        dispatch(getAllUsers())
     }, [dispatch])
 
     return (

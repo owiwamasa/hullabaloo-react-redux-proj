@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { getAllPodcasts } from '../../store/podcast';
+import { getAllEpisodes } from '../../store/episode';
+import { getAllFollowers } from '../../store/follower';
 import SearchResultsPage from '../SearchResults'
 
 import './HomePage.css'
 
-function HomePage({ podcasts, episodes, followers }) {
+function HomePage() {
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const followers = useSelector(state => state.follower.allFollowers)
+    const dispatch = useDispatch()
+
     const topTenEpisodes = episodes?.slice(0, 10)
     const topTenPodcasts = podcasts?.slice(0, 10)
     const episodeCopy = []
@@ -15,6 +23,12 @@ function HomePage({ podcasts, episodes, followers }) {
     const sessionUser = useSelector(state => state.session.user);
     const follows = followers?.filter(follow => follow.userId === sessionUser?.id)
     const [search, setSearch] = useState('')
+
+    useEffect(() => {
+        dispatch(getAllPodcasts())
+        dispatch(getAllEpisodes())
+        dispatch(getAllFollowers())
+    }, [dispatch])
 
     const onSubmit = (e) => {
         e.preventDefault()

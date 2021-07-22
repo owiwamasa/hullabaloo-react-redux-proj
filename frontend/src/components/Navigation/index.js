@@ -5,7 +5,6 @@ import './Navigation.css';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
 import * as sessionActions from '../../store/session'
-import { getSearchPodcasts } from '../../store/podcast';
 import logo from '../../images/comedy-heads.png'
 
 function Navigation({ isLoaded }) {
