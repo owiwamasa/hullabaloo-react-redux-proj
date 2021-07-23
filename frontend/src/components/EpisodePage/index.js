@@ -11,12 +11,13 @@ import './EpisodePage.css'
 
 function EpisodePage() {
     const dispatch = useDispatch()
+    const comments = useSelector(state => state.comment.allComments)
     const podcasts = useSelector(state => state.podcast.allPodcasts)
     const episodes = useSelector(state => state.episode.allEpisodes)
     const users = useSelector(state => state.user.allUsers)
-    const comments = useSelector(state => state.comment.allComments)
     const sessionUser = useSelector(state => state.session.user);
     const [comm, setComm] = useState('')
+    const [errors, setErrors] = useState([])
 
     const { id } = useParams()
     const episode = episodes?.find(episode => episode.id === +id)
@@ -25,13 +26,20 @@ function EpisodePage() {
     const podcast = podcasts?.find(podcast => podcast.id === podcastId)
     const user = users?.find(user => user.id === userId)
     const episodeComments = comments?.filter(comment => comment?.Episode?.id === episode?.id)
+    const episodeCommentsByTime = episodeComments?.reverse()
 
     let count = 0;
 
     const onSubmit = (e) => {
         e.preventDefault()
+
+
         const payload = { comment: comm, userId: sessionUser?.id, episodeId: episode?.id }
         dispatch(createComment(payload))
+            .catch(async (res) => {
+                const data = await res.json()
+                if (data && data.errors) setErrors(data.errors)
+            })
         setComm('')
     }
 
@@ -62,8 +70,12 @@ function EpisodePage() {
                 imageUrl: podcast?.imageUrl,
                 totalPlays: newPodcastTotal
             }
-            dispatch(editEpisode(episodePayload, episode?.id))
-            dispatch(editPodcast(podcastPayload, podcast?.id))
+            const updateTotal = async () => {
+                await dispatch(editEpisode(episodePayload, episode?.id))
+                await dispatch(editPodcast(podcastPayload, podcast?.id))
+                dispatch(getAllEpisodes())
+            }
+            updateTotal()
         }
         return
     }
@@ -73,10 +85,13 @@ function EpisodePage() {
         audioPlayer?.addEventListener('play', (e) => {
             playIncrement()
         })
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getAllComments())
         dispatch(getAllPodcasts())
         dispatch(getAllEpisodes())
         dispatch(getAllUsers())
-        dispatch(getAllComments())
     }, [dispatch])
 
 
@@ -107,29 +122,44 @@ function EpisodePage() {
                 </div>
             </div>
             <div className='episode-page-comment-container'>
-                <div className='episode-page-comment'>
-                    <form onSubmit={onSubmit}>
-                        <textarea
-                            name='comment'
-                            type='text'
-                            value={comm}
-                            onChange={e => setComm(e.target.value)}
-                        >
-                        </textarea>
-                        <button className='episode-page-comment-btn' type='submit'>Post Comment</button>
-                    </form>
-                </div>
-                <div className='episode-page-comment-list'>
-                    <div className='episode-page-comment-title'>Comments</div>
-                    {episodeComments && episodeComments?.map(comment => (
-                        <div className='episode-page-comment-list-each' key={comment?.id}>
-                            <div className='episode-page-comment-list-post'>"{comment?.comment}"</div>
-                            <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
-                            {(comment?.User?.id === sessionUser?.id) ?
-                                <button onClick={() => deleteOneComment(comment?.id)}>Delete Comment</button>
-                                : null}
+                <div className='episode-page-comment-title'>Comments</div>
+                <div className='episode-page-comment-info'>
+                    <div className='episode-page-comment'>
+                        <form onSubmit={onSubmit}>
+                            <div className='errors-container'>
+                                <ul className='errors'>
+                                    {errors && errors.map((err, idx) => (
+                                        <li key={idx}>{err}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <textarea
+                                name='comment'
+                                type='text'
+                                value={comm}
+                                onChange={e => setComm(e.target.value)}
+                            >
+                            </textarea>
+                            <button className='episode-page-comment-btn' type='submit'>Post Comment</button>
+                        </form>
+                    </div>
+                    <div className='episode-page-comment-list-scroll'>
+                        <div className='episode-page-comment-list'>
+                            {episodeCommentsByTime && episodeCommentsByTime?.map(comment => (
+                                <div className='episode-page-comment-list-each' key={comment?.id}>
+                                    <div className='episode-page-comment-list-post-div'>
+                                        <div className='episode-page-comment-list-post'>" {comment?.comment} "</div>
+                                    </div>
+                                    <div className='episode-page-comment-user-N-delete'>
+                                        <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
+                                        {(comment?.User?.id === sessionUser?.id) ?
+                                            <button className='episode-page-comment-delete' onClick={() => deleteOneComment(comment?.id)}>Delete</button>
+                                            : null}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
 

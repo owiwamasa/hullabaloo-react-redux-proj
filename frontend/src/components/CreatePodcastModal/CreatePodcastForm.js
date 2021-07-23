@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import './CreatePodcastForm.css'
-import { createPodcast } from '../../store/podcast'
+import { createPodcast, getAllPodcasts } from '../../store/podcast'
 
 function CreatePodcastForm({ setShowModal }) {
     const sessionUser = useSelector(state => state.session.user);
+    // const podcasts = useSelector(state => state.podcast.allPodcasts);
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
+    // const history = useHistory()
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -24,13 +27,28 @@ function CreatePodcastForm({ setShowModal }) {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
+
+        // const CreatePod = async () => {
+        //     await dispatch(createPodcast(payload)).then(() => setShowModal(false))
+        //         .catch(async (res) => {
+        //             const data = await res.json()
+        //             if (data && data.errors) setErrors(data.errors)
+        //         })
+        //     await dispatch(getAllPodcasts())
+        //     const podcast = await podcasts?.find(podcast => (podcast?.description === description && podcast?.name === name))
+        //     const podcastId = podcast?.id
+        //     history.push(`/podcasts/${podcastId}`)
+        // }
+        // CreatePod()
     }
 
     return (
         <div className='create-podcast-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='create-podcast-content'>
-                    <h3 className='create-podcast-h3'>Create New Podcast</h3>
+                    <div className='create-podcast-h3-div'>
+                        <h3 className='create-podcast-h3'>Create New Podcast</h3>
+                    </div>
                     <div className='errors-container'>
                         <ul className='errors'>
                             {errors && errors.map((err, idx) => (

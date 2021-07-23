@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import './EditPodcastForm.css'
-import { editPodcast } from '../../store/podcast'
+import { editPodcast, getAllPodcasts } from '../../store/podcast'
 
 function EditPodcastForm({ podcastId, setShowModal }) {
     const sessionUser = useSelector(state => state.session.user);
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
+    const podcasts = useSelector(state => state.podcast.allPodcasts)
+    const podcast = podcasts?.find(podcast => podcast?.id === podcastId)
+
+    const [name, setName] = useState(podcast?.name)
+    const [description, setDescription] = useState(podcast?.description)
+    const [imageUrl, setImageUrl] = useState(podcast?.imageUrl)
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
     const history = useHistory()
@@ -29,11 +32,17 @@ function EditPodcastForm({ podcastId, setShowModal }) {
             })
     }
 
+    useEffect(() => {
+        dispatch(getAllPodcasts())
+    }, [dispatch])
+
     return (
         <div className='edit-podcast-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='edit-podcast-content'>
-                    <h3 className='edit-podcast-h3'>Edit Podcast</h3>
+                    <div className='edit-podcast-h3-container'>
+                        <h3 className='edit-podcast-h3'>Edit Podcast</h3>
+                    </div>
                     <div className='errors-container'>
                         <ul className='errors'>
                             {errors && errors.map((err, idx) => (
