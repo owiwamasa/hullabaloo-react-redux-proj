@@ -16,8 +16,7 @@ function Navigation({ isLoaded }) {
     const history = useHistory()
 
     const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
+        setShowMenu(!showMenu);
     };
 
     useEffect(() => {
