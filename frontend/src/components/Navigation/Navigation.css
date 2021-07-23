@@ -18,10 +18,6 @@
     align-items: center;
     padding: 0;
     margin: 0;
-}
-
-.profile-dropdown{
-    display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
@@ -62,7 +58,6 @@
     align-items: center;
     justify-content: center;
     margin: 10px 60px 10px 182px;
-    /* width: 175px; */
 }
 
 .navbar{
@@ -99,9 +94,35 @@
     background-color: rgb(235, 252, 249);
     font-weight: 500;
     padding: 5px 15px;
-    margin: 0px 5px;
 }
 
-#signup-btn {
-    margin-right: 60px
+.nonuser-btn {
+    color: black;
+    background-color: rgb(235, 252, 249);
+    font-size: 15px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-right:60px;
+    margin-left: 182px;
+}
+
+.nav-nonuser-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nonuser-dropdown {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    position: absolute;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 60px;
+}
+
+.dropdown-demo, .dropdown-login, .dropdown-signup {
+    margin-top: 10px;
 }
