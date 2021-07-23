@@ -6,6 +6,8 @@
 .login-content {
     border: 3px solid black;
     border-radius: 100px;
+    /* background: rgb(255,87,0);
+    background: linear-gradient(90deg, rgba(255,87,0,1) 0%, rgba(243,255,0,1) 0%, rgba(0,255,241,1) 100%); */
 }
 
 .login-h3-container {
@@ -15,6 +17,9 @@
     height: 100%;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .login-h3{

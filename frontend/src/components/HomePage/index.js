@@ -39,7 +39,7 @@ function HomePage() {
             <div className='home-page-search-bar'>
                 <form onSubmit={onSubmit}>
                     <input
-                        class='home-page-search-input'
+                        className='home-page-search-input'
                         type='text'
                         name='search'
                         value={search}

@@ -6,3 +6,7 @@ body {
     padding: 0;
     background-color: rgb(235, 252, 249);
 }
+
+input:focus, select:focus, textarea:focus, button:focus {
+    outline: none;
+}
