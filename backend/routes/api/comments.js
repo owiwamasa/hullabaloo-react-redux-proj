@@ -19,14 +19,17 @@ const commentValidator = [
 router.get('/', asyncHandler(async (req, res) => {
     const allComments = await Comment.findAll({
         include: [Episode, User],
-        order: [['createdAt', 'DESC']]
+        // order: [['createdAt', 'DESC']]
     })
 
     res.json({ allComments })
 }))
 
 router.post('/', commentValidator, asyncHandler(async (req, res) => {
-    const newComment = await Comment.create(req.body)
+    const { id } = await Comment.create(req.body)
+    const newComment = await Comment.findByPk(id, {
+        include: [Episode, User]
+    })
     return res.json(newComment)
 }))
 

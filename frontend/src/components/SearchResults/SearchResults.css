@@ -1,0 +1,124 @@
+.search-results {
+    background-color: rgb(209, 234, 247);
+}
+
+.search-results-title {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+/* PODCASTS */
+
+.podcast-results-title{
+    text-align: left;
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.podcast-results-link {
+    text-decoration: none;
+    color: black;
+}
+
+.podcast-results-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.search-each-podcast{
+    margin: 0px 20px;
+}
+
+.search-podcast-name {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    height: 25px;
+    width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.search-podcast-image-div {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow-y: hidden;
+    border-radius: 20px;
+}
+
+.search-podcast-image {
+    width: 100%;
+    height: auto;
+}
+
+
+/* EPISODES */
+
+
+.episode-results-title{
+    text-align: left;
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.episode-results-link {
+    text-decoration: none;
+    color: black;
+}
+
+.episode-results-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.search-each-episode{
+    margin: 0px 20px;
+}
+
+.search-episode-title {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    height: 25px;
+    width: 280px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-bottom: 30px;
+}
+
+.search-episode-image-div {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow-y: hidden;
+    border-radius: 40px;
+}
+
+.search-episode-image {
+    width: 100%;
+    height: auto;
+}

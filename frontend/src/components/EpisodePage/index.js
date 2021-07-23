@@ -26,6 +26,7 @@ function EpisodePage() {
     const podcast = podcasts?.find(podcast => podcast.id === podcastId)
     const user = users?.find(user => user.id === userId)
     const episodeComments = comments?.filter(comment => comment?.Episode?.id === episode?.id)
+    const episodeCommentsByTime = episodeComments?.reverse()
 
     let count = 0;
 
@@ -69,8 +70,12 @@ function EpisodePage() {
                 imageUrl: podcast?.imageUrl,
                 totalPlays: newPodcastTotal
             }
-            dispatch(editEpisode(episodePayload, episode?.id))
-            dispatch(editPodcast(podcastPayload, podcast?.id))
+            const updateTotal = async () => {
+                await dispatch(editEpisode(episodePayload, episode?.id))
+                await dispatch(editPodcast(podcastPayload, podcast?.id))
+                dispatch(getAllEpisodes())
+            }
+            updateTotal()
         }
         return
     }
@@ -140,7 +145,7 @@ function EpisodePage() {
                     </div>
                     <div className='episode-page-comment-list-scroll'>
                         <div className='episode-page-comment-list'>
-                            {episodeComments && episodeComments?.map(comment => (
+                            {episodeCommentsByTime && episodeCommentsByTime?.map(comment => (
                                 <div className='episode-page-comment-list-each' key={comment?.id}>
                                     <div className='episode-page-comment-list-post-div'>
                                         <div className='episode-page-comment-list-post'>" {comment?.comment} "</div>

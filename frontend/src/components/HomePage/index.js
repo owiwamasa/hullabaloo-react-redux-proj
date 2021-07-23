@@ -32,23 +32,23 @@ function HomePage() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-
     }
 
     return (
         <div>
-            {/* <form onSubmit={onSubmit}>
-                <input
-                    class='nav-search'
-                    type='search'
-                    name='search'
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder='Search by podcast, episode, username...'>
-                </input>
-            </form>
-            <SearchResultsPage /> */}
-
+            <div className='home-page-search-bar'>
+                <form onSubmit={onSubmit}>
+                    <input
+                        class='home-page-search-input'
+                        type='text'
+                        name='search'
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder='Search by podcast, episode, username...'>
+                    </input>
+                </form>
+            </div>
+            {search && <SearchResultsPage search={search} />}
             {follows?.length ? <div className='home-followed-podcasts'>
                 <div className='home-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='home-followed-podcast-list'>

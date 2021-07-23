@@ -1,6 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
-const { Podcast, Episode } = require('../../db/models')
+const { Podcast, User, Episode } = require('../../db/models')
 const { handleValidationErrors } = require('../../utils/validation')
 const { check } = require('express-validator')
 
@@ -26,7 +26,7 @@ const validateEpisode = [
 
 router.get('/', asyncHandler(async (req, res) => {
     const allEpisodes = await Episode.findAll({
-        include: Podcast,
+        include: [Podcast, User],
         order: [['totalPlays', 'DESC']]
     })
 

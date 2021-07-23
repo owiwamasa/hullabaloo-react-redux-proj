@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import './EditEpisodeForm.css'
-import { editEpisode } from '../../store/episode'
+import { editEpisode, getAllEpisodes } from '../../store/episode'
 
 function EditEpisodeForm({ episodeId, podcastId, setShowModal }) {
     const sessionUser = useSelector(state => state.session.user);
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
-    const [mp3file, setMp3file] = useState('')
+    const episodes = useSelector(state => state.episode.allEpisodes)
+    const episode = episodes?.find(episode => episode?.id === episodeId)
+
+    const [title, setTitle] = useState(episode?.title)
+    const [description, setDescription] = useState(episode?.description)
+    const [imageUrl, setImageUrl] = useState(episode?.imageUrl)
+    const [mp3file, setMp3file] = useState(episode?.mp3file)
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
     const history = useHistory()
@@ -29,6 +32,10 @@ function EditEpisodeForm({ episodeId, podcastId, setShowModal }) {
                 if (data && data.errors) setErrors(data.errors)
             })
     }
+
+    useEffect(() => {
+        dispatch(getAllEpisodes())
+    }, [dispatch])
 
     return (
         <div className='edit-episode-form-div'>
