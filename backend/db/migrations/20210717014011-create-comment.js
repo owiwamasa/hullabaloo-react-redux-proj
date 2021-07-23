@@ -10,7 +10,7 @@ module.exports = {
       },
       comment: {
         allowNull: false,
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING(110)
       },
       userId: {
         allowNull: false,

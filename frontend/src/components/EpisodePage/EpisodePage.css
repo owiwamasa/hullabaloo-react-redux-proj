@@ -134,66 +134,106 @@ audio::-webkit-media-controls-panel {
 
 .episode-page-comment-container {
     display: flex;
-    align-content: flex-start;
-    justify-content: center;
-    width: 262px;
+    flex-direction: column;
+    align-items: center;
     margin-top: 130px;
-    margin-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(209, 234, 247);
 }
 
 .episode-page-comment textarea {
     resize: none;
-    width: 250px;
+    width: 300px;
     height: 80px;
     border-radius: 10px;
     padding: 5px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.episode-page-comment {
-    margin-right: 240px;
+.episode-page-comment form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .episode-page-comment-btn {
     border-radius: 20px;
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     background-color: rgb(233,233,233);
     font-weight: 500;
     padding: 5px 15px;
-    margin-left: 70px;
     margin-bottom: 20px;
 }
 
 .episode-page-comment-list-each {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border: 1px solid black;
-    width: 250px;
+    min-width: 250px;
+    height: 180px;
     padding: 20px;
     background-color: white;
+    border-radius: 20px;
+    margin: 0 15px 0 15px;
 }
 
 .episode-page-comment-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.episode-page-comment-list-post-div {
+    display: flex;
+    align-items: center;
+    height: 100px;
 }
 
 .episode-page-comment-list-post {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    text-align: start;
+    width: 250px;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .episode-page-comment-list-user {
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
-    text-align: end;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.episode-page-comment-list-scroll {
+    width: 1000px;
+    overflow-x: scroll;
 }
 
 .episode-page-comment-list {
+    display: flex;
+}
+
+.episode-page-comment-delete {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    border-radius: 20px;
+    width: 150px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.episode-page-comment-user-N-delete {
+
 }
