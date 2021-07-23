@@ -34,7 +34,9 @@ function EditEpisodeForm({ episodeId, podcastId, setShowModal }) {
         <div className='edit-episode-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='edit-episode-content'>
-                    <h3 className='edit-episode-h3'>Edit Episode</h3>
+                    <div className='edit-episode-h3-container'>
+                        <h3 className='edit-episode-h3'>Edit Episode</h3>
+                    </div>
                     <div className='errors-container'>
                         <ul className='errors'>
                             {errors && errors.map((err, idx) => (

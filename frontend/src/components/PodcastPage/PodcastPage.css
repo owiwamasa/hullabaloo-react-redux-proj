@@ -40,8 +40,16 @@
     text-align: center;
     font-size: 30px;
     font-family: 'Righteous', cursive;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 40px;
+}
+
+.podcast-page-episodes-container {
+    background-color: rgb(209, 234, 247);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .podcast-page-episodes-scroll {
@@ -49,6 +57,7 @@
     overflow-y: hidden;
     overflow-x: scroll;
     width: 1200px;
+    background-color: rgb(209, 234, 247);
 }
 
 .podcast-page-episodes-list {
@@ -100,6 +109,7 @@
     display: flex;
     align-items: center;
     margin-top: 20px;
+    padding-bottom: 40px;
 }
 
 .podcast-page-user-info {

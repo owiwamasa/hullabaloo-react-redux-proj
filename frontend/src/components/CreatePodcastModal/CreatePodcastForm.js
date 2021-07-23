@@ -30,7 +30,9 @@ function CreatePodcastForm({ setShowModal }) {
         <div className='create-podcast-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='create-podcast-content'>
-                    <h3 className='create-podcast-h3'>Create New Podcast</h3>
+                    <div className='create-podcast-h3-div'>
+                        <h3 className='create-podcast-h3'>Create New Podcast</h3>
+                    </div>
                     <div className='errors-container'>
                         <ul className='errors'>
                             {errors && errors.map((err, idx) => (

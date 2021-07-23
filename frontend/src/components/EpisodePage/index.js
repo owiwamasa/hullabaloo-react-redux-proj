@@ -11,10 +11,10 @@ import './EpisodePage.css'
 
 function EpisodePage() {
     const dispatch = useDispatch()
+    const comments = useSelector(state => state.comment.allComments)
     const podcasts = useSelector(state => state.podcast.allPodcasts)
     const episodes = useSelector(state => state.episode.allEpisodes)
     const users = useSelector(state => state.user.allUsers)
-    const comments = useSelector(state => state.comment.allComments)
     const sessionUser = useSelector(state => state.session.user);
     const [comm, setComm] = useState('')
 
@@ -73,10 +73,13 @@ function EpisodePage() {
         audioPlayer?.addEventListener('play', (e) => {
             playIncrement()
         })
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getAllComments())
         dispatch(getAllPodcasts())
         dispatch(getAllEpisodes())
         dispatch(getAllUsers())
-        dispatch(getAllComments())
     }, [dispatch])
 
 

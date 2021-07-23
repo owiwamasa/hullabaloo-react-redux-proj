@@ -6,7 +6,10 @@ const router = express.Router()
 
 
 router.get('/', asyncHandler(async (req, res) => {
-    const allComments = await Comment.findAll({ include: [Episode, User] })
+    const allComments = await Comment.findAll({
+        include: [Episode, User],
+        order: [['createdAt', 'DESC']]
+    })
 
     res.json({ allComments })
 }))

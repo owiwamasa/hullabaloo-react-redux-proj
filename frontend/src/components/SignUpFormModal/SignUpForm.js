@@ -28,7 +28,9 @@ function SignUpFormModal() {
         <div className='signup-form-div'>
             <form onSubmit={onSubmit}>
                 <div className='signup-content'>
-                    <h3 className='signup-h3'>Sign Up</h3>
+                    <div className='signup-h3-container'>
+                        <h3 className='signup-h3'>Sign Up</h3>
+                    </div>
                     <div>
                         <div className='errors-container'>
                             <ul className='errors'>
