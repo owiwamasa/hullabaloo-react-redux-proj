@@ -2,7 +2,6 @@
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    margin-top: 30px;
 }
 
 .home-followed-podcast-list-link {
@@ -237,6 +236,7 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .home-page-search-bar form{
     border-radius: 30px;

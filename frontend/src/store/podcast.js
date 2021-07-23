@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf'
+import history from '../history'
 
 const ALL_PODS = 'podcast/ALL_PODS'
 const CREATE_POD = 'podcast/CREATE_POD'
@@ -41,6 +42,7 @@ export const createPodcast = (payload) => async dispatch => {
         body: JSON.stringify(payload)
     })
     const newPodcast = await res.json()
+    history.push(`/podcasts/${newPodcast.id}`)
     dispatch(createPod(newPodcast))
     return newPodcast
 }

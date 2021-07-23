@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf'
+import history from '../history'
 
 const ALL_EPISODES = 'episodes/ALL_EPISODES'
 const CREATE_EPISODE = 'episodes/CREATE_EPISODE'
@@ -40,6 +41,7 @@ export const createEpisode = (payload) => async dispatch => {
         body: JSON.stringify(payload)
     })
     const newEpisode = await res.json()
+    history.push(`/episodes/${newEpisode.id}`)
     dispatch(createOneEpisode(newEpisode))
     return newEpisode
 }
