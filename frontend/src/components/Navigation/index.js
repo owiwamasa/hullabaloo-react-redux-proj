@@ -16,7 +16,8 @@ function Navigation({ isLoaded }) {
     const history = useHistory()
 
     const openMenu = () => {
-        setShowMenu(!showMenu);
+        if (showMenu) return;
+        setShowMenu(true);
     };
 
     useEffect(() => {
@@ -58,7 +59,7 @@ function Navigation({ isLoaded }) {
                             <button id='demo-btn' onClick={demoLogin}>Demo</button>
                         </div>
                         <div className='dropdown-signup'>
-                            <SignUpFormModal />
+                            <SignUpFormModal onClick={() => setShowModal(true)} />
                         </div>
                         <div className='dropdown-login'>
                             <LoginFormModal />
