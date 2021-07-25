@@ -87,7 +87,7 @@ function ProfilePage() {
                             <div className='profile-page-edit-btns'>
                                 <CreateEpisodeModal podcastId={podcast?.id} />
                                 <EditPodcastModal podcastId={podcast?.id} />
-                                <button className='profile-page-btn' onClick={() => deletePod(podcast?.id)}>Delete Podcast</button>
+                                <button className='profile-page-btn profile-page-delete-btn' onClick={() => deletePod(podcast?.id)}>Delete Podcast</button>
                             </div>
                         </div>
                     ))}

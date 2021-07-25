@@ -23,7 +23,6 @@
 .home-followed-podcast-list-name {
     font-family: 'Righteous', cursive;
     font-size: 24px;
-    margin-bottom: 70px;
     height: 28px;
     width: 300px;
     overflow: hidden;
@@ -46,15 +45,11 @@
 
 
 /* MOST PLAYED PODCASTS */
-.most-played-podcasts{
-    background-color: rgb(209, 234, 247);
-}
 
 .most-podcast-title {
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    padding-top: 50px;
 }
 
 .home-podcast-list-link {
@@ -95,22 +90,16 @@
     font-size: 18px;
     text-align: start;
     font-weight: bold;
-    margin-bottom: 60px;
 }
 
 
 /* MOST PLAYED EPISODES */
 
-.most-played-episodes{
-    background-color: rgb(209, 234, 247);
-}
 
 .most-episode-title {
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    margin-top: 50px;
-    padding-top: 50px;
 }
 
 .home-episode-list-link {
@@ -161,7 +150,6 @@
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     text-align: left;
-    padding-bottom: 80px;
 }
 
 
@@ -173,7 +161,6 @@
     text-align: center;
     font-family: 'Righteous', cursive;
     font-size: 30px;
-    margin-top: 50px;
 }
 
 .recent-episode-list-link {
@@ -225,7 +212,6 @@
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     text-align: start;
-    margin-bottom: 10px;
 }
 
 
@@ -248,4 +234,13 @@
     width: 350px;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
+}
+
+.home-page-div:nth-of-type(2n){
+    background-color: rgb(209, 234, 247);
+}
+
+.home-page-div {
+    padding-top: 40px;
+    padding-bottom: 60px;
 }

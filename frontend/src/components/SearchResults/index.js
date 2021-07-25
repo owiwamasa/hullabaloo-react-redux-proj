@@ -59,7 +59,7 @@ function SearchResultsPage({ search }) {
                             <div className='search-each-podcast' key={podcast?.id}>
                                 <Link className='podcast-results-link' to={`/podcasts/${podcast?.id}`}>
                                     <div className='search-podcast-image-div'>
-                                        <img className='search-podcast-image' src={podcast?.imageUrl}></img>
+                                        <img className='search-podcast-image' src={podcast?.imageUrl} alt='podcast'></img>
                                     </div>
                                     <div className='search-podcast-name'>{podcast?.name}</div>
                                 </Link>
@@ -74,7 +74,7 @@ function SearchResultsPage({ search }) {
                             <div className='search-each-episode' key={episode?.id}>
                                 <Link className='episode-results-link' to={`/episodes/${episode?.id}`}>
                                     <div className='search-episode-image-div'>
-                                        <img className='search-episode-image' src={episode?.imageUrl}></img>
+                                        <img className='search-episode-image' src={episode?.imageUrl} alt='episode'></img>
                                     </div>
                                     <div className='search-episode-title'>{episode?.title}</div>
                                 </Link>

@@ -44,12 +44,12 @@ function HomePage() {
                         name='search'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder='Search by podcast, episode, username...'>
+                        placeholder='Search by podcast, episode, user....'>
                     </input>
                 </form>
             </div>
-            {search && <SearchResultsPage search={search} />}
-            {follows?.length ? <div className='home-followed-podcasts'>
+            {search && <SearchResultsPage className='home-page-div' search={search} />}
+            {follows?.length ? <div className='home-followed-podcasts home-page-div'>
                 <div className='home-followed-podcast-title'>Podcasts You're Following</div>
                 <div className='home-followed-podcast-list'>
                     {follows && follows?.map(follow => (
@@ -63,7 +63,7 @@ function HomePage() {
                 </div>
             </div> : null}
 
-            <div className='most-played-podcasts'>
+            <div className='most-played-podcasts home-page-div'>
                 <div className='most-podcast-title'>Most Popular Podcasts</div>
                 <div className='home-podcast-list'>
                     {topTenPodcasts && topTenPodcasts?.map(podcast => (
@@ -77,7 +77,7 @@ function HomePage() {
                     ))}
                 </div>
             </div>
-            <div className='most-recent-episodes'>
+            <div className='most-recent-episodes home-page-div'>
                 <div className='recent-episode-title'>Newest Episodes</div>
                 <div className='recent-episode-list'>
                     {mostRecentEpisodes && mostRecentEpisodes?.map(episode => (
@@ -95,7 +95,7 @@ function HomePage() {
                     ))}
                 </div>
             </div>
-            <div className='most-played-episodes'>
+            <div className='most-played-episodes home-page-div'>
                 <div className='most-episode-title'>Most Popular Episodes</div>
                 <div className='home-episode-list'>
                     {topTenEpisodes && topTenEpisodes?.map(episode => (

@@ -57,7 +57,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px 60px 10px 182px;
+    margin: 10px 64px 10px 182px;
 }
 
 .navbar{
@@ -93,6 +93,7 @@
     font-size: 15px;
     background-color: rgb(235, 252, 249);
     padding: 5px 15px;
+    margin: 5px;
 }
 
 .nonuser-btn {
@@ -107,21 +108,18 @@
 
 .nav-nonuser-menu {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .nonuser-dropdown {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    position: absolute;
-    top: 70px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    right: 60px;
+    justify-content: center;
+    margin-right: 60px;
 }
 
-.dropdown-demo, .dropdown-login, .dropdown-signup {
+/* .dropdown-demo, .dropdown-login, .dropdown-signup {
     margin-top: 10px;
-}
+} */

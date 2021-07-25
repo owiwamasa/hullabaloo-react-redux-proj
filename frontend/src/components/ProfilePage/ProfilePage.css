@@ -32,11 +32,15 @@
     font-size: 15px;
     font-weight: 500;
     padding: 5px 15px;
-    margin: 10px 20px;
+    margin: 10px 5px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     white-space: nowrap;
+}
+
+.profile-page-delete-btn {
+    margin-left: 5px;;
 }
 
 .profile-page-edit-btns {
@@ -69,7 +73,7 @@
 }
 
 .profile-page-podcast-image{
-    width: 400px;
+    width: 350px;
     height: auto;
     margin: 20px 0px;
     border-radius: 40px;
@@ -100,8 +104,8 @@
 }
 
 .profile-page-episode-image-div {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;

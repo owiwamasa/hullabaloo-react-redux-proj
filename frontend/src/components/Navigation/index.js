@@ -1,5 +1,4 @@
 import { NavLink, useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -12,25 +11,8 @@ import './Navigation.css'
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
-    const [showMenu, setShowMenu] = useState(false);
     const history = useHistory()
 
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
-
-    useEffect(() => {
-        if (!showMenu) return;
-
-        const closeMenu = () => {
-            setShowMenu(false);
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
 
     const goToLanding = () => {
         history.push('/')
@@ -49,22 +31,17 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <div className='nav-nonuser-menu'>
-                <button className='nonuser-btn' onClick={openMenu}>
-                    <i className='far fa-user' />
-                    <i className="fas fa-caret-down" />
-                </button>
-                {showMenu &&
-                    <div className='nonuser-dropdown'>
-                        <div className='dropdown-demo'>
-                            <button id='demo-btn' onClick={demoLogin}>Demo</button>
-                        </div>
-                        <div className='dropdown-signup'>
-                            <SignUpFormModal onClick={() => setShowModal(true)} />
-                        </div>
-                        <div className='dropdown-login'>
-                            <LoginFormModal />
-                        </div>
-                    </div>}
+                <div className='nonuser-dropdown'>
+                    <div className='dropdown-demo'>
+                        <button id='demo-btn' onClick={demoLogin}>Demo</button>
+                    </div>
+                    <div className='dropdown-signup'>
+                        <SignUpFormModal />
+                    </div>
+                    <div className='dropdown-login'>
+                        <LoginFormModal />
+                    </div>
+                </div>
             </div>
         );
     }

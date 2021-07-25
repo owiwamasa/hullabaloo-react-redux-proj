@@ -9,18 +9,19 @@
 }
 
 .signup-h3-container {
-    padding: 80px 0px 5px 0px;
+    padding: 10px 0px 5px 0px;
     background-color: yellow;
     width: 100%;
     height: 100%;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
+    margin-bottom: 50px;
 }
 
 .signup-h3{
     display: flex;
     justify-content: center;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
 }
@@ -31,6 +32,7 @@
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
+    font-size: 20px;
 }
 
 .signup-username-input, .signup-email-input, .signup-password-input, .signup-confirm-password-input, .signup-profile-pic-input {
@@ -44,6 +46,7 @@
     padding: 5px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    font-size: 17px;;
 }
 
 .signup-btn-div {
@@ -55,10 +58,10 @@
 
 .signup-btn {
     border-radius: 25px;
-    padding: 11px 20px;
+    padding: 11px 30px;
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .signup-inputs {
@@ -70,10 +73,10 @@
 }
 
 .errors-container {
-    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .errors {
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
