@@ -3,14 +3,32 @@
 </p>
 
 # Hullabaloo
-Hullabaloo, a <a href='https://bandcamp.com'>bandcamp</a> clone, is an app where users can to discover comedy podcasts and create their own.
-
-- All users can search for and listen to their favorite comedy podcasts.
-- Logged in users can follow podcasts, leave comments, and create their own podcast.
+Hullabaloo, a <a href='https://bandcamp.com'>bandcamp</a> clone, is an app where users can to discover comedy podcasts and create their own. It is built using React.js, Redux.js, and Express.
 
 View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</a>
 
 <br />
+
+## Features
+
+- Sign up/in with email
+- Search by podcast, episode, user, or description
+- Follow/ Unfollow podcasts
+- Post/ Delete comments on episodes
+- Create your own podcast and episodes
+- Audio player that increments 'Total Plays' for each podcast and episode
+<br />
+
+## Home Page:
+
+<img src='https://hullabaloo-mp3s.s3.us-east-2.amazonaws.com/Screen+Shot+2021-07-25+at+3.34.02+PM.png' width='500px' />
+<br />
+
+## Profile Page:
+
+<img src='https://hullabaloo-mp3s.s3.us-east-2.amazonaws.com/Screen+Shot+2021-07-25+at+3.34.55+PM.png' width='500px' />
+<br />
+
 
 ## Technologies Used
 
@@ -80,9 +98,9 @@ Owen Iwamasa:
 <a href='owiwamasa@gmail.com'>
 <img src="https://i.imgur.com/jLLwTjh.png" width="25" height="25">
 </a>
-<a href=''>
+<!-- <a href=''>
 <img src="https://logodix.com/logo/91031.png" width="25" height="25">
-</a>
+</a> -->
 <a href='https://github.com/owiwamasa'>
 <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" width="25" height="25">
 </a>
