@@ -44,7 +44,7 @@ function HomePage() {
                         name='search'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder='Search by podcast, episode, user....'>
+                        placeholder='Search by podcast, episode, user, description...'>
                     </input>
                 </form>
             </div>
