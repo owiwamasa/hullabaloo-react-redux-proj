@@ -15,8 +15,8 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</
 - Search by podcast, episode, user, or description
 - Follow/ Unfollow podcasts
 - Post/ Delete comments on episodes
-- Create your own podcast and episodes
-- Audio player that increments 'Total Plays' for each podcast and episode
+- Create, edit, and delete your own podcast and episodes
+- Audio player increments 'Total Plays' for each podcast and episode
 <br />
 
 ## Home Page:
@@ -98,9 +98,9 @@ Owen Iwamasa:
 <a href='owiwamasa@gmail.com'>
 <img src="https://i.imgur.com/jLLwTjh.png" width="25" height="25">
 </a>
-<!-- <a href=''>
+<a href='https://www.linkedin.com/in/owen-iwamasa-6ab3a9166/'>
 <img src="https://logodix.com/logo/91031.png" width="25" height="25">
-</a> -->
+</a>
 <a href='https://github.com/owiwamasa'>
 <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" width="25" height="25">
 </a>
