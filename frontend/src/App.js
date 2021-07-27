@@ -10,6 +10,7 @@ import PodcastPage from "./components/PodcastPage";
 import ProfilePage from "./components/ProfilePage";
 import EpisodePage from './components/EpisodePage'
 import SearchResultsPage from "./components/SearchResults";
+import Footer from './components/Footer'
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         </Switch>
       )
       }
+      <Footer isLoaded={isLoaded} />
     </>
   );
 }

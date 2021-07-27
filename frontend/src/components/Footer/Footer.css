@@ -1,0 +1,15 @@
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info-container{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
