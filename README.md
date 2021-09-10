@@ -3,7 +3,8 @@
 </p>
 
 # Hullabaloo
-Hullabaloo, a <a href='https://bandcamp.com'>bandcamp</a> clone, is an app where users can to discover comedy podcasts and create their own. It is built using React.js, Redux.js, and Express.
+
+Hullabaloo, a <a href='https://bandcamp.com'>Bandcamp</a> clone, is an app where users can to discover comedy podcasts and create their own. It is built using React.js, Redux.js, and Express.
 
 View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</a>
 
@@ -17,7 +18,7 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</
 - Post/ Delete comments on episodes
 - Create, edit, and delete your own podcast and episodes
 - Audio player increments 'Total Plays' for each podcast and episode
-<br />
+  <br />
 
 ## Home Page:
 
@@ -28,7 +29,6 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</
 
 <img src='https://hullabaloo-mp3s.s3.us-east-2.amazonaws.com/Screen+Shot+2021-07-25+at+3.34.55+PM.png' width='500px' />
 <br />
-
 
 ## Technologies Used
 
@@ -48,41 +48,49 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Hullabaloo app</
 ## Installation
 
 1. After cloning the project, from the hullabaloo (root) folder, run in the terminal:
+
 ```
  npm install
 ```
 
 2. In the backed folder, run in the terminal:
+
 ```
 npm install
 ```
 
 3. In the frontend folder, run in the terminal:
+
 ```
 npm install
 ```
 
 4. In the backed folder, create the database by running in the terminal:
+
 ```
 npx dotenv sequelize db:create
 ```
 
 5. In the backed folder, migrate tables to the database by running in the terminal:
+
 ```
 npx dotenv sequelize db:migrate
 ```
 
 6. In the backed folder, seed the database by running in the terminal:
+
 ```
 npx dotenv sequelize db:seed:all
 ```
 
 7. In the backed folder, start the backend by running in the terminal:
+
 ```
 npm start
 ```
 
 8. In the frontend folder, start the frontend by running in the terminal:
+
 ```
 npm start
 ```
