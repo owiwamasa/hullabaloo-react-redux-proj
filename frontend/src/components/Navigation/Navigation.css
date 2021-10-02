@@ -1,125 +1,149 @@
 .profile-btn {
-    color: black;
-    background-color: rgb(235, 252, 249);
-    font-size: 15px;
-    padding: 10px 30px;
-    border-radius: 20px;
+  color: black;
+  background-color: rgb(235, 252, 249);
+  font-size: 15px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.profile-btn:hover,
+.logout-btn:hover,
+.my-page-btn:hover,
+#demo-btn:hover,
+#login-btn:hover,
+#signup-btn:hover {
+  cursor: pointer;
 }
 
 .fa-user {
-    font-size: 15px;
-    margin-right: 5px;
+  font-size: 15px;
+  margin-right: 5px;
 }
 
 .profile-dropdown {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    position: absolute;
-    top: 70px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  position: absolute;
+  top: 70px;
 }
 
 .dropdown-user {
-    margin-top: 3px;
+  margin-top: 3px;
 }
 
 .dropdown-logout {
-    padding: 10px;
+  padding: 10px;
 }
 
 .logout-btn {
-    display: flex;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background-color: rgb(235, 252, 249);
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: rgb(235, 252, 249);
 }
 
 .my-page-btn {
-    margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background-color: rgb(235, 252, 249);
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: rgb(235, 252, 249);
 }
 
 .profile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 64px 10px 182px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 64px 10px 182px;
 }
 
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(244, 255, 44);
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(244, 255, 44);
 }
 
 .nav-home {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    font-family: 'Righteous', cursive;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  font-family: "Righteous", cursive;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .navbar-logo {
-    width: 150px;
-    height: auto;
-    margin: 10px 123px 10px 60px;
+  width: 150px;
+  height: auto;
+  margin: 10px 123px 10px 60px;
 }
 
 .logo-btn {
-    border: none;
-    background-color: rgb(244, 255, 44);
+  border: none;
+  background-color: rgb(244, 255, 44);
 }
 
-#demo-btn, #login-btn, #signup-btn {
-    border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    background-color: rgb(235, 252, 249);
-    padding: 5px 15px;
-    margin: 5px;
+#demo-btn,
+#login-btn,
+#signup-btn {
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: rgb(235, 252, 249);
+  padding: 5px 15px;
+  margin: 5px;
+  white-space: nowrap;
 }
 
 .nonuser-btn {
-    color: black;
-    background-color: rgb(235, 252, 249);
-    font-size: 15px;
-    padding: 10px 30px;
-    border-radius: 20px;
-    margin-right:60px;
-    margin-left: 182px;
+  color: black;
+  background-color: rgb(235, 252, 249);
+  font-size: 15px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  margin-right: 60px;
+  margin-left: 182px;
 }
 
 .nav-nonuser-menu {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nonuser-dropdown {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 60px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 60px;
 }
 
 /* .dropdown-demo, .dropdown-login, .dropdown-signup {
     margin-top: 10px;
 } */
+
+@media only screen and (max-width: 850px) {
+  .profile-menu {
+    margin: 10px 64px 10px 10px;
+  }
+  .navbar-logo {
+    width: 150px;
+    height: auto;
+    margin: 10px 10px 10px 60px;
+  }
+}

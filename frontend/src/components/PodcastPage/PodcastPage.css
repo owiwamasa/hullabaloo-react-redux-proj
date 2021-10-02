@@ -1,162 +1,179 @@
 .podcast-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .podcast-page-title {
-    font-size: 45px;
-    font-family: 'Righteous', cursive;
+  font-size: 45px;
+  font-family: "Righteous", cursive;
 }
 
 .podcast-page-image img {
-    width: 400px;
-    height: auto;
-    margin-top: 50px;
-    border-radius: 30px;
+  width: 400px;
+  height: auto;
+  margin-top: 50px;
+  border-radius: 30px;
 }
 
 .podcast-page-username {
-    font-family: 'Poppins', sans-serif;
-    font-size: 25px;
-    margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  margin-top: 20px;
 }
 
 .podcast-page-description {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    margin-top: 20px;
-    width: 450px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 450px;
 }
 
 .podcast-page-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 25px;
-    margin-top: 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  margin-top: 40px;
 }
 
 .podcast-page-episodes-title {
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Righteous', cursive;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Righteous", cursive;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .podcast-page-episodes-container {
-    background-color: rgb(209, 234, 247);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: rgb(209, 234, 247);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .podcast-page-episodes-scroll {
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    width: 1200px;
-    background-color: rgb(209, 234, 247);
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 90%;
+  background-color: rgb(209, 234, 247);
 }
 
 .podcast-page-episodes-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .podcast-page-episode {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    height: 25px;
-    width: 300px;
-    padding: 5px 15px 5px 0px;
-    margin: 10px 30px 5px 20px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  height: 25px;
+  width: 300px;
+  padding: 5px 15px 5px 0px;
+  margin: 10px 30px 5px 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .podcast-page-episode-image-div {
-    width: 330px;
-    height: 330px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    overflow-y: hidden;
-    border-radius: 30px;
-    margin: 0px 20px;
+  width: 330px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  overflow-y: hidden;
+  border-radius: 30px;
+  margin: 0px 20px;
 }
 
 .podcast-page-episode-image-div img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .podcast-page-episode-date {
-    margin-top: 2px;
-    margin-bottom: 80px;
-    margin-left: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+  margin-top: 2px;
+  margin-bottom: 80px;
+  margin-left: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
 }
 
 .podcast-page-info {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 40px;
 }
 
 .podcast-page-user-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 60px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  text-align: center;
 }
 
 .profile-page-episode-podcast-title {
-    font-size: 20px;
-    font-family: 'Righteous', cursive;
+  font-size: 20px;
+  font-family: "Righteous", cursive;
 }
 
 .podcast-page-profile-pic {
-    margin-top: 15px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    border-radius: 700px;
-    height: 100px;
-    width: 100px;
-    background-color: rgb(50, 50, 50);
-    border: 5px solid yellow;
-    display: flex;
-    justify-content: center;
+  margin-top: 15px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-radius: 700px;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(50, 50, 50);
+  border: 5px solid yellow;
+  display: flex;
+  justify-content: center;
 }
 
-.podcast-page-profile-pic img{
-    width: auto;
-    height: 100px;
+.podcast-page-profile-pic img {
+  width: auto;
+  height: 100px;
 }
 
 .podcast-page-follow-btn {
-    background-color: rgb(233, 233, 233);
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 5px 15px;
-    margin: 10px 20px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
+  background-color: rgb(233, 233, 233);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 15px;
+  margin: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .podcast-page-follower-count {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 930px) {
+  .podcast-page-info {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .podcast-page-image img {
+    margin-top: 20px;
+  }
+
+  .podcast-page-user-info {
+    margin-left: 0;
+  }
 }

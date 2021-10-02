@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/owiwamasa/authenticate-me/issues"
   },
-  "homepage": "https://github.com/owiwamasa/authenticate-me#readme"
+  "homepage": "https://github.com/owiwamasa/authenticate-me#readme",
+  "dependencies": {
+    "react-audio-waveform": "^0.0.5",
+    "wavesurfer.js": "^5.2.0"
+  }
 }

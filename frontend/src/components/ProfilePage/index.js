@@ -77,7 +77,7 @@ function ProfilePage() {
                 </div>
                 <div className='profile-page-podcasts-container'>
                     <div className='profile-page-podcast-user'>{sessionUser?.username}'s Podcasts</div>
-                    {mostRecentPodcasts && mostRecentPodcasts?.map(podcast => (
+                    {mostRecentPodcasts.length ? mostRecentPodcasts?.map(podcast => (
                         <div className='profile-page-podcasts' key={podcast?.id}>
                             <div className='profile-page-podcast-title'>{podcast?.name}</div>
                             <Link to={`/podcasts/${podcast?.id}`}>
@@ -90,12 +90,14 @@ function ProfilePage() {
                                 <button className='profile-page-btn profile-page-delete-btn' onClick={() => deletePod(podcast?.id)}>Delete Podcast</button>
                             </div>
                         </div>
-                    ))}
+                    )):
+                        <div className='profile-page-no-podcasts'>You have no podcasts!<br></br><br></br><i class="fas fa-frown"></i></div>
+                    }
                 </div>
 
                 <div className='profile-page-episodes-container'>
                     <div className='profile-page-episode-user'>{sessionUser?.username}'s Episodes</div>
-                    {mostRecentEpisodes && mostRecentEpisodes?.map(episode => (
+                    {mostRecentEpisodes.length ? mostRecentEpisodes?.map(episode => (
                         <div className='profile-page-episodes' key={episode?.id}>
                             <div className='profile-page-episode-title'>{episode?.title}</div>
                             <Link to={`/episodes/${episode?.id}`}>
@@ -110,7 +112,9 @@ function ProfilePage() {
                                 <button className='profile-page-btn' onClick={() => deleteOneEpisode(episode?.id)}>Delete Episode</button>
                             </div>
                         </div>
-                    ))}
+                    )):
+                        <div className='profile-page-no-episodes'>You have no episodes!<br></br><br></br><i class="fas fa-frown"></i></div>
+                    }
                 </div>
             </div>
         </div>

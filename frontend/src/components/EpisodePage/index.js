@@ -8,6 +8,7 @@ import { getAllEpisodes } from '../../store/episode';
 import { getAllUsers } from '../../store/user';
 import { getAllComments, createComment, deleteComment } from '../../store/comment'
 import './EpisodePage.css'
+import WaveForm from '../WaveForm'
 
 function EpisodePage() {
     const dispatch = useDispatch()
@@ -33,6 +34,10 @@ function EpisodePage() {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        if (!sessionUser) {
+            setErrors(['You must be logged in to comment.'])
+            return
+        }
 
         const payload = { comment: comm, userId: sessionUser?.id, episodeId: episode?.id }
         dispatch(createComment(payload))
@@ -103,6 +108,7 @@ function EpisodePage() {
             <audio className='episode-page-audio' controls>
                 <source src={episode?.mp3file} type='audio/mp3'></source>
             </audio>
+            {/* <WaveForm audio={episode?.mp3file}/> */}
             <div className='episode-page-info'>
                 <div className='episode-page-image-container'>
                     <div className='episode-page-image-div'>

@@ -11,6 +11,7 @@ import ProfilePage from "./components/ProfilePage";
 import EpisodePage from './components/EpisodePage'
 import SearchResultsPage from "./components/SearchResults";
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <ScrollToTop />
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
