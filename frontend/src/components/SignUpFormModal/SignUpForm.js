@@ -12,7 +12,7 @@ function SignUpFormModal() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         setErrors([])

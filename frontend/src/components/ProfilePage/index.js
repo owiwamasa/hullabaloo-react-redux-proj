@@ -96,7 +96,9 @@ function ProfilePage() {
                                 </div>
                             </div>
                         )):
+                        <div className='profile-page-none-div'>
                             <div className='profile-page-no-podcasts'>You have no podcasts!<br></br><br></br><i class="fas fa-frown"></i></div>
+                        </div>
                         }
                 </div>
                 </div>
@@ -119,7 +121,9 @@ function ProfilePage() {
                                 </div>
                             </div>
                         )):
+                        <div className='profile-page-none-div'>
                             <div className='profile-page-no-episodes'>You have no episodes!<br></br><br></br><i class="fas fa-frown"></i></div>
+                        </div>
                         }
                 </div>
                 </div>

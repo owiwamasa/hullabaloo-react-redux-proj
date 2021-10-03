@@ -83,7 +83,7 @@ function PodcastPage() {
                                 </Link>
                             </div>
                             <div className='podcast-page-episode'>{episode?.title}</div>
-                            <div className='podcast-page-episode-date'>{episode?.releaseDate}</div>
+                            <div className='podcast-page-episode-date'>{episode?.releaseDate.slice(5)}-{episode?.releaseDate.slice(0,4)}</div>
                         </div>
                     ))}
                 </div>

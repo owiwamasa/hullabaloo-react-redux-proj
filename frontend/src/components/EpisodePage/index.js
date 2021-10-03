@@ -103,7 +103,7 @@ function EpisodePage() {
     return (
         <div className='episode-page-container'>
             <div className='episode-page-title'>{episode?.title}</div>
-            <div className='episode-page-date'>{episode?.releaseDate}</div>
+            <div className='episode-page-date'>{episode?.releaseDate.slice(5)}-{episode?.releaseDate.slice(0,4)}</div>
             <div className='episode-page-podcast-name'>{podcast?.name}</div>
             <audio className='episode-page-audio' controls>
                 <source src={episode?.mp3file} type='audio/mp3'></source>
@@ -153,11 +153,17 @@ function EpisodePage() {
                         <div className='episode-page-comment-list'>
                             {episodeCommentsByTime && episodeCommentsByTime?.map(comment => (
                                 <div className='episode-page-comment-list-each' key={comment?.id}>
+                                    <div className='episode-page-comment-date'>{comment?.createdAt.slice(5, 10)}-{comment?.createdAt.slice(0,4)}</div>
                                     <div className='episode-page-comment-list-post-div'>
                                         <div className='episode-page-comment-list-post'>" {comment?.comment} "</div>
                                     </div>
                                     <div className='episode-page-comment-user-N-delete'>
-                                        <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
+                                        <div className='episode-page-comment-list-user-info'>
+                                            <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
+                                            <div className='episode-page-comment-list-user-image'>
+                                                <img src={comment?.User?.profilePic} alt='profile pic' />
+                                            </div>
+                                        </div>
                                         {(comment?.User?.id === sessionUser?.id) ?
                                             <button className='episode-page-comment-delete' onClick={() => deleteOneComment(comment?.id)}>Delete</button>
                                             : null}
