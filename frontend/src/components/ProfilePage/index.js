@@ -9,6 +9,7 @@ import { getAllPodcasts } from '../../store/podcast';
 import { getAllEpisodes } from '../../store/episode';
 import { getAllUsers } from '../../store/user';
 import { getAllFollowers } from '../../store/follower';
+import { getAllComments, deleteComment } from '../../store/comment';
 import './ProfilePage.css'
 import { deletePodcast } from '../../store/podcast'
 import { deleteEpisode } from '../../store/episode'
@@ -20,6 +21,7 @@ function ProfilePage() {
     const followers = useSelector(state => state.follower.allFollowers)
     const users = useSelector(state => state.user.allUsers)
     const sessionUser = useSelector(state => state.session.user);
+    const comments = useSelector(state => state.comment.allComments)
 
     const userPodcasts = podcasts?.filter(podcast => podcast.userId === sessionUser.id)
     const userEpisodes = episodes?.filter(episode => episode.userId === sessionUser.id)
@@ -43,6 +45,10 @@ function ProfilePage() {
     }
 
     const deleteOneEpisode = (episodeId) => {
+        const episodeComments = comments?.filter(comment => comment?.episodeId === episodeId)
+        if (episodeComments) {
+            episodeComments.forEach(async comment => await dispatch(deleteComment(comment?.id)))
+        }
         return dispatch(deleteEpisode(episodeId))
     }
 
@@ -51,6 +57,7 @@ function ProfilePage() {
         dispatch(getAllEpisodes())
         dispatch(getAllUsers())
         dispatch(getAllFollowers())
+        dispatch(getAllComments())
     }, [dispatch])
 
     return (
