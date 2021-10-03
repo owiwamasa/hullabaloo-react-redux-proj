@@ -8,7 +8,7 @@ import { getAllEpisodes } from '../../store/episode';
 import { getAllUsers } from '../../store/user';
 import { getAllComments, createComment, deleteComment } from '../../store/comment'
 import './EpisodePage.css'
-import WaveForm from '../WaveForm'
+// import WaveForm from '../WaveForm'
 
 function EpisodePage() {
     const dispatch = useDispatch()
@@ -56,7 +56,7 @@ function EpisodePage() {
     const playIncrement = () => {
         if (count < 1) {
             count++
-            let episodeTotal = parseInt(episode.totalPlays, 10)
+            let episodeTotal = parseInt(episode?.totalPlays, 10)
             const newEpisodeTotal = episodeTotal + 1
 
             const episodePayload = {
@@ -66,7 +66,7 @@ function EpisodePage() {
                 mp3file: episode?.mp3file,
                 totalPlays: newEpisodeTotal
             }
-            let podcastTotal = parseInt(podcast.totalPlays, 10)
+            let podcastTotal = parseInt(podcast?.totalPlays, 10)
             const newPodcastTotal = podcastTotal + 1
 
             const podcastPayload = {
@@ -75,9 +75,9 @@ function EpisodePage() {
                 imageUrl: podcast?.imageUrl,
                 totalPlays: newPodcastTotal
             }
-            const updateTotal = async () => {
-                await dispatch(editEpisode(episodePayload, episode?.id))
-                await dispatch(editPodcast(podcastPayload, podcast?.id))
+            const updateTotal = async (podId) => {
+                await dispatch(editEpisode(episodePayload, id))
+                await dispatch(editPodcast(podcastPayload, podcastId))
                 dispatch(getAllEpisodes())
             }
             updateTotal()
@@ -85,12 +85,6 @@ function EpisodePage() {
         return
     }
 
-    useEffect(() => {
-        const audioPlayer = document.querySelector('.episode-page-audio')
-        audioPlayer?.addEventListener('play', (e) => {
-            playIncrement()
-        })
-    }, [dispatch])
 
     useEffect(() => {
         dispatch(getAllComments())
@@ -99,6 +93,12 @@ function EpisodePage() {
         dispatch(getAllUsers())
     }, [dispatch])
 
+    useEffect(() => {
+        const audioPlayer = document.querySelector('.episode-page-audio')
+        audioPlayer?.addEventListener('play', (e) => {
+            playIncrement()
+        })
+    }, [])
 
     return (
         <div className='episode-page-container'>
