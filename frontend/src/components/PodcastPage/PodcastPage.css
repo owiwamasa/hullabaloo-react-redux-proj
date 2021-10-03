@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  min-height: 700px;
 }
 
 .podcast-page-title {

@@ -14,6 +14,8 @@
   overflow-y: scroll;
   overflow-x: hidden;
   min-width: 500px;
+  min-height: 700px;
+  max-height: 1100px;
 }
 
 .profile-page-episodes-container {
@@ -21,7 +23,8 @@
   text-align: center;
   overflow-y: scroll;
   max-width: 500px;
-  height: 700px;
+  min-height: 700px;
+  max-height: 1100px;
 }
 
 .profile-page-btn {
@@ -68,6 +71,8 @@
   font-family: "Poppins", sans-serif;
   font-size: 30px;
   margin-bottom: 35px;
+  white-space: nowrap;
+  margin-top: 20px;
 }
 
 .profile-page-podcast-image {
@@ -107,6 +112,7 @@
   font-size: 30px;
   margin-bottom: 35px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .profile-page-episode-image-div {
@@ -286,11 +292,16 @@
   .profile-page-podcasts-container {
     margin-right: 0;
     display: flex;
+    flex-direction: row;
     min-width: 90%;
   }
 
   .profile-page-podcasts-container {
     margin-bottom: 0;
+    align-items: flex-start;
+    overflow-x: scroll;
+    min-height: 600px;
+    width: 90%;
   }
 
   .profile-page-episodes,

@@ -71,6 +71,7 @@ function PodcastPage() {
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
                 </div>
             </div>
+            {mostRecentEpisodes.length ?
             <div className='podcast-page-episodes-container'>
                 <div className='podcast-page-episodes-title'>Episodes</div>
                 <div className='podcast-page-episodes-scroll'>
@@ -86,7 +87,7 @@ function PodcastPage() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div>: null}
         </div>
     )
 }
