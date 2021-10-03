@@ -35,6 +35,10 @@ function ProfilePage() {
     const dispatch = useDispatch()
 
     const deletePod = (podcastId) => {
+        const podcastEpisodes = userEpisodes?.filter(episode => episode?.podcastId === podcastId)
+        if (podcastEpisodes) {
+            podcastEpisodes.forEach(async episode => await dispatch(deleteEpisode(episode?.id)))
+        }
         return dispatch(deletePodcast(podcastId))
     }
 
