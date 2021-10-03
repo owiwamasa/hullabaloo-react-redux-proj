@@ -62,13 +62,16 @@ function PodcastPage() {
                     <div className='podcast-page-profile-pic'>
                         <img src={podcastUser?.profilePic} alt='profile pic' />
                     </div>
-                    {isFollower ? <button className='podcast-page-follow-btn' onClick={follow}>Follow {podcast?.name}</button>
-                        : <button className='podcast-page-follow-btn' onClick={unfollow} >✓ Following {podcast?.name}</button>}
+                    {sessionUser &&
+                        (isFollower ? <button className='podcast-page-follow-btn' onClick={follow}>Follow {podcast?.name}</button>
+                            : <button className='podcast-page-follow-btn' onClick={unfollow} >✓ Following {podcast?.name}</button>)
+                            }
                     <div className='podcast-page-follower-count'>Followers: {followerPodList?.length}</div>
                     <div className='podcast-page-description'>{podcast?.description}</div>
                     <div className='podcast-page-plays'>Total Plays: {podcast?.totalPlays}</div>
                 </div>
             </div>
+            {mostRecentEpisodes.length ?
             <div className='podcast-page-episodes-container'>
                 <div className='podcast-page-episodes-title'>Episodes</div>
                 <div className='podcast-page-episodes-scroll'>
@@ -80,11 +83,11 @@ function PodcastPage() {
                                 </Link>
                             </div>
                             <div className='podcast-page-episode'>{episode?.title}</div>
-                            <div className='podcast-page-episode-date'>{episode?.releaseDate}</div>
+                            <div className='podcast-page-episode-date'>{episode?.releaseDate.slice(5)}-{episode?.releaseDate.slice(0,4)}</div>
                         </div>
                     ))}
                 </div>
-            </div>
+            </div>: null}
         </div>
     )
 }

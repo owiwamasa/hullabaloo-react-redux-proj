@@ -37,7 +37,8 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
-    const { email, password, username, profilePic } = req.body
+    let { email, password, username, profilePic } = req.body
+    if (!profilePic) profilePic = 'https://i.imgur.com/N8RoYl1.png'
     const user = await User.signup({ email, username, password, profilePic })
 
     await setTokenCookie(res, user)

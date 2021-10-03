@@ -1,6 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
-const { Podcast, User } = require('../../db/models')
+const { Podcast, User, Episode } = require('../../db/models')
 const { handleValidationErrors } = require('../../utils/validation')
 const { check } = require('express-validator')
 
@@ -55,7 +55,13 @@ router.put('/:id', validatePodcast, asyncHandler(async (req, res) => {
 router.delete('/:id', asyncHandler(async (req, res) => {
     const { id } = req.params
     const podcast = await Podcast.findByPk(id)
+    const episodes = await Episode.findAll({ where: { podcastId: id } })
     res.json(podcast)
+    if (episodes.length > 0) {
+        episodes.forEach(async episode => {
+            await episode.destroy()
+        })
+    }
     await podcast.destroy()
     return
 }))

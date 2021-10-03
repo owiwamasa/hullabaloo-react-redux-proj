@@ -1,224 +1,335 @@
 .profile-page-container {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(209, 234, 247);
-    padding-top: 50px
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(209, 234, 247);
+  padding-top: 50px;
 }
 
 .profile-page-podcasts-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-    text-align: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    min-width: 500px;
-    height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-width: 500px;
+  min-height: 700px;
+  max-height: 1100px;
 }
 
 .profile-page-episodes-container {
-    margin-right: 80px;
-    margin-bottom: 40px;
-    text-align: center;
-    overflow-y: scroll;
-    max-width: 500px;
-    height: 700px;
+  margin-bottom: 40px;
+  text-align: center;
+  overflow-y: scroll;
+  max-width: 500px;
+  min-height: 700px;
+  max-height: 1100px;
 }
 
 .profile-page-btn {
-    background-color: rgb(233, 233, 233);
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 5px 15px;
-    margin: 10px 5px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
+  background-color: rgb(233, 233, 233);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 15px;
+  margin: 10px 5px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .profile-page-delete-btn {
-    margin-left: 5px;;
+  margin-left: 5px;
 }
 
 .profile-page-edit-btns {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .profile-page-podcast-title {
-    font-size: 35px;
-    font-family: 'Righteous', cursive;
+  font-size: 35px;
+  font-family: "Righteous", cursive;
 }
 
-.profile-page-podcasts{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
+.profile-page-podcasts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .profile-page-podcast-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .profile-page-podcast-user {
-    font-family: 'Poppins', sans-serif;
-    font-size: 30px;
-    margin-bottom: 35px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  margin-bottom: 35px;
+  white-space: nowrap;
 }
 
-.profile-page-podcast-image{
-    width: 350px;
-    height: auto;
-    margin: 20px 0px;
-    border-radius: 40px;
+.profile-page-podcast-image {
+  width: 350px;
+  height: auto;
+  margin: 20px 0px;
+  border-radius: 40px;
 }
 
 .profile-page-episode-title {
-    font-size: 35px;
-    font-family: 'Righteous', cursive;
+  font-size: 35px;
+  font-family: "Righteous", cursive;
 }
 
-.profile-page-episodes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
+.profile-page-episodes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.profile-page-episode-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 80px;
 }
 
 .profile-page-episode-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .profile-page-episode-user {
-    font-family: 'Poppins', sans-serif;
-    font-size: 30px;
-    margin-bottom: 35px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  margin-bottom: 35px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .profile-page-episode-image-div {
-    width: 350px;
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    overflow-y: hidden;
-    border-radius: 40px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  overflow-y: hidden;
+  border-radius: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .profile-page-episode-image {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .profile-page-episode-edit-btns {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-page-create-btn-container {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin-left: 80px;
-    width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 80px;
+  width: 280px;
 }
 
 .profile-page-create-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
-    text-align: start;
-    font-weight: bold;
-    margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  text-align: start;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.profile-page-logo{
-    margin-bottom: 30px;
-    width: 200px;
-    height: auto;
+.profile-page-logo {
+  margin-bottom: 30px;
+  width: 200px;
+  height: auto;
 }
 
 .profile-page-pic-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-page-pic-div {
-    margin-top: 45px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    border-radius: 700px;
-    height: 100px;
-    width: 100px;
-    background-color: rgb(50, 50, 50);
-    border: 5px solid yellow;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+  margin-top: 45px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-radius: 700px;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(50, 50, 50);
+  border: 5px solid yellow;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.profile-page-pic{
-    width: auto;
-    height: 100px;
+.profile-page-pic {
+  width: auto;
+  height: 100px;
 }
-
 
 /* FOLLOWING */
 
-
 .profile-page-followed-podcast-title {
-    text-align: center;
-    font-family: 'Righteous', cursive;
-    font-size: 30px;
+  text-align: center;
+  font-family: "Righteous", cursive;
+  font-size: 30px;
 }
 
 .profile-page-followed-podcast-list-link {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .profile-page-followed-podcast-list {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    margin-top: 50px;
-    margin-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin-top: 50px;
+  margin-bottom: 70px;
 }
 
-.profile-page-followed-podcast-list-each{
-    margin: 0px 20px;
+.profile-page-followed-podcast-list-each {
+  margin: 0px 20px;
 }
 
 .profile-page-followed-podcast-list-name {
-    font-family: 'Righteous', cursive;
-    font-size: 22px;
-    margin-bottom: 10px;
-    height: 28px;
-    width: 250px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  font-family: "Righteous", cursive;
+  font-size: 22px;
+  margin-bottom: 10px;
+  height: 28px;
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .profile-page-followed-podcast-list-image {
-    width: 250px;
-    height: auto;
-    border-radius: 20px;
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
 }
 
 .profile-page-followed-podcast-list-plays {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    text-align: end;
-    font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-align: end;
+  font-weight: bold;
+}
+
+.profile-page-no-episodes,
+.profile-page-no-podcasts {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 185px;
+}
+
+.profile-page-no-episodes i,
+.profile-page-no-podcasts i {
+  color: yellow;
+  font-size: 35px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: black;
+}
+
+@media only screen and (max-width: 1340px) {
+  .profile-page-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-page-create-btn-container {
+    margin-left: 0;
+    flex-direction: row;
+    align-items: center;
+    width: 520px;
+    margin-bottom: 20px;
+  }
+
+  .profile-page-logo {
+    height: 80px;
+    width: auto;
+  }
+
+  #create-podcast-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin-bottom: 30px;
+  }
+
+  .profile-page-create-title {
+    font-size: 30px;
+  }
+
+  .profile-page-episode-div {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .profile-page-episodes-container,
+  .profile-page-podcasts-container {
+    margin-right: 0;
+    display: flex;
+    flex-direction: row;
+    min-width: 90%;
+    min-height: 600px;
+  }
+
+  .profile-page-podcasts-container {
+    margin-bottom: 0;
+    align-items: flex-start;
+    overflow-x: scroll;
+    min-height: 600px;
+    width: 90%;
+  }
+
+  .profile-page-episodes,
+  .profile-page-podcasts {
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+
+  .profile-page-episode-title,
+  .profile-page-podcast-title {
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .profile-page-podcast-user,
+  .profile-page-episode-user {
+    text-align: center;
+    width: 90%;
+    padding-top: 20px;
+    border-top: 2px solid rgba(128, 128, 128, 0.324);
+  }
+
+  .profile-page-no-episodes,
+  .profile-page-no-podcasts {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    margin-top: 185px;
+  }
+
+  .profile-page-none-div {
+    width: 100%;
+  }
 }

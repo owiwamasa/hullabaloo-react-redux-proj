@@ -8,6 +8,7 @@ import { getAllEpisodes } from '../../store/episode';
 import { getAllUsers } from '../../store/user';
 import { getAllComments, createComment, deleteComment } from '../../store/comment'
 import './EpisodePage.css'
+// import WaveForm from '../WaveForm'
 
 function EpisodePage() {
     const dispatch = useDispatch()
@@ -33,6 +34,10 @@ function EpisodePage() {
     const onSubmit = (e) => {
         e.preventDefault()
 
+        if (!sessionUser) {
+            setErrors(['You must be logged in to comment.'])
+            return
+        }
 
         const payload = { comment: comm, userId: sessionUser?.id, episodeId: episode?.id }
         dispatch(createComment(payload))
@@ -51,7 +56,7 @@ function EpisodePage() {
     const playIncrement = () => {
         if (count < 1) {
             count++
-            let episodeTotal = parseInt(episode.totalPlays, 10)
+            let episodeTotal = parseInt(episode?.totalPlays, 10)
             const newEpisodeTotal = episodeTotal + 1
 
             const episodePayload = {
@@ -61,7 +66,7 @@ function EpisodePage() {
                 mp3file: episode?.mp3file,
                 totalPlays: newEpisodeTotal
             }
-            let podcastTotal = parseInt(podcast.totalPlays, 10)
+            let podcastTotal = parseInt(podcast?.totalPlays, 10)
             const newPodcastTotal = podcastTotal + 1
 
             const podcastPayload = {
@@ -70,9 +75,9 @@ function EpisodePage() {
                 imageUrl: podcast?.imageUrl,
                 totalPlays: newPodcastTotal
             }
-            const updateTotal = async () => {
-                await dispatch(editEpisode(episodePayload, episode?.id))
-                await dispatch(editPodcast(podcastPayload, podcast?.id))
+            const updateTotal = async (podId) => {
+                await dispatch(editEpisode(episodePayload, id))
+                await dispatch(editPodcast(podcastPayload, podcastId))
                 dispatch(getAllEpisodes())
             }
             updateTotal()
@@ -80,12 +85,6 @@ function EpisodePage() {
         return
     }
 
-    useEffect(() => {
-        const audioPlayer = document.querySelector('.episode-page-audio')
-        audioPlayer?.addEventListener('play', (e) => {
-            playIncrement()
-        })
-    }, [dispatch])
 
     useEffect(() => {
         dispatch(getAllComments())
@@ -94,15 +93,22 @@ function EpisodePage() {
         dispatch(getAllUsers())
     }, [dispatch])
 
+    useEffect(() => {
+        const audioPlayer = document.querySelector('.episode-page-audio')
+        audioPlayer?.addEventListener('play', (e) => {
+            playIncrement()
+        })
+    }, [])
 
     return (
         <div className='episode-page-container'>
             <div className='episode-page-title'>{episode?.title}</div>
-            <div className='episode-page-date'>{episode?.releaseDate}</div>
+            <div className='episode-page-date'>{episode?.releaseDate.slice(5)}-{episode?.releaseDate.slice(0,4)}</div>
             <div className='episode-page-podcast-name'>{podcast?.name}</div>
             <audio className='episode-page-audio' controls>
                 <source src={episode?.mp3file} type='audio/mp3'></source>
             </audio>
+            {/* <WaveForm audio={episode?.mp3file}/> */}
             <div className='episode-page-info'>
                 <div className='episode-page-image-container'>
                     <div className='episode-page-image-div'>
@@ -147,11 +153,17 @@ function EpisodePage() {
                         <div className='episode-page-comment-list'>
                             {episodeCommentsByTime && episodeCommentsByTime?.map(comment => (
                                 <div className='episode-page-comment-list-each' key={comment?.id}>
+                                    <div className='episode-page-comment-date'>{comment?.createdAt.slice(5, 10)}-{comment?.createdAt.slice(0,4)}</div>
                                     <div className='episode-page-comment-list-post-div'>
                                         <div className='episode-page-comment-list-post'>" {comment?.comment} "</div>
                                     </div>
                                     <div className='episode-page-comment-user-N-delete'>
-                                        <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
+                                        <div className='episode-page-comment-list-user-info'>
+                                            <div className='episode-page-comment-list-user'>-{comment?.User?.username}</div>
+                                            <div className='episode-page-comment-list-user-image'>
+                                                <img src={comment?.User?.profilePic} alt='profile pic' />
+                                            </div>
+                                        </div>
                                         {(comment?.User?.id === sessionUser?.id) ?
                                             <button className='episode-page-comment-delete' onClick={() => deleteOneComment(comment?.id)}>Delete</button>
                                             : null}
