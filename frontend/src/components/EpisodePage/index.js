@@ -52,7 +52,6 @@ function EpisodePage() {
         dispatch(deleteComment(commentId))
     }
 
-
     const playIncrement = () => {
         if (count < 1) {
             count++
@@ -66,6 +65,9 @@ function EpisodePage() {
                 mp3file: episode?.mp3file,
                 totalPlays: newEpisodeTotal
             }
+            console.log('------------------------------------');
+            console.log(episodePayload);
+            console.log('------------------------------------');
             let podcastTotal = parseInt(podcast?.totalPlays, 10)
             const newPodcastTotal = podcastTotal + 1
 
@@ -75,7 +77,8 @@ function EpisodePage() {
                 imageUrl: podcast?.imageUrl,
                 totalPlays: newPodcastTotal
             }
-            const updateTotal = async (podId) => {
+            const updateTotal = async () => {
+                // console.log(podcastId, id)
                 await dispatch(editEpisode(episodePayload, id))
                 await dispatch(editPodcast(podcastPayload, podcastId))
                 dispatch(getAllEpisodes())
@@ -98,7 +101,7 @@ function EpisodePage() {
         audioPlayer?.addEventListener('play', (e) => {
             playIncrement()
         })
-    }, [])
+    }, [episode?.totalPlays])
 
     return (
         <div className='episode-page-container'>
